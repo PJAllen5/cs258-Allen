@@ -1,0 +1,49 @@
+# ---- Compiled objects / libraries -------------------------------------
+*.o
+*.obj
+*.lo
+*.slo
+*.gch
+*.pch
+*.a
+*.lib
+*.la
+*.lai
+*.so
+*.dylib
+*.dll
+*.d
+*.dwo
+*.mod
+*.smod
+
+# ---- Executables ------------------------------------------------------
+*.exe
+*.app
+*.out
+*.ilk
+*.pdb
+
+# The Makefiles here build extensionless binaries, which no wildcard
+# catches. Run `make clean` before you commit; these are a safety net.
+bankSim
+code
+linkedbag_test
+main
+test
+testp
+utest
+test_arrayStack
+test_doubleNode
+test_linked_bag
+test_palindrome
+test_peek2
+test_postfix
+
+# ---- Editor / OS ------------------------------------------------------
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store

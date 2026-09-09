@@ -1,0 +1,19 @@
+all: test
+
+# If you want to test your code outside of the unit
+# tests, create a new .cpp file and add a main() function
+#
+# MODIFY THIS MAKEFILE to compile your programs
+
+
+# compile the unit test code
+utest: 
+	g++ -std=c++11 -o test tests/test.cpp
+
+# run the unit tests.  -s parameter means show passed tests
+# and not just the failed tests
+test: utest
+	./test -s
+
+clean:
+	rm test
