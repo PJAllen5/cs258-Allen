@@ -10,8 +10,9 @@ template<class ItemType>
 class SL_PriorityQueue : public PriorityQueueInterface<ItemType>
 {
 private:
-    std::unique_ptr<LinkedSortedList<ItemType>> slistPtr;  // Pointer to sorted list of
-                                                           // items in the priority queue
+    std::unique_ptr<LinkedSortedList<ItemType>>
+        slistPtr;  // Pointer to sorted list of
+                   // items in the priority queue
 public:
     SL_PriorityQueue();
     SL_PriorityQueue(const SL_PriorityQueue& pq);

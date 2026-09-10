@@ -1,5 +1,5 @@
-//  Created by Frank M. Carrano and Timothy M. Henry.
-//  Copyright (c) 2017 Pearson Education, Hoboken, New Jersey.
+//   Created by Frank M. Carrano and Timothy M. Henry.
+//   Copyright (c) 2017 Pearson Education, Hoboken, New Jersey.
 
 /** Listing 7-4.
     @file LinkedStack.cpp */

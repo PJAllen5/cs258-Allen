@@ -1,4 +1,5 @@
-#define CATCH_CONFIG_MAIN  // This tells Catch to provide a main() -     only do this in one cpp file
+#define CATCH_CONFIG_MAIN  // This tells Catch to provide a main() -     only do
+                           // this in one cpp file
 
 #include "../code.hpp"
 #include "catch.hpp"
@@ -8,7 +9,8 @@
 
 /**
  * @brief Test suite for displayBackward function
- * Tests the function that displays stack contents in reverse order (top element last)
+ * Tests the function that displays stack contents in reverse order (top element
+ * last)
  */
 TEST_CASE("### displayBackward - Basic functionality ###", "[displayBackward]")
 {
@@ -61,7 +63,8 @@ TEST_CASE("### displayBackward - Basic functionality ###", "[displayBackward]")
 
 /**
  * @brief Test suite for countStack function
- * Tests the function that counts items in a stack while leaving the stack unchanged
+ * Tests the function that counts items in a stack while leaving the stack
+ * unchanged
  */
 TEST_CASE("### countStack - Comprehensive testing ###", "[countStack]")
 {
@@ -78,7 +81,8 @@ TEST_CASE("### countStack - Comprehensive testing ###", "[countStack]")
         int count = countStack(myStack);
 
         REQUIRE(count == 13);
-        REQUIRE(myStack.size() == originalSize);  // Stack should remain unchanged
+        REQUIRE(myStack.size() ==
+                originalSize);  // Stack should remain unchanged
     }
 
     SECTION("Empty stack counting")
@@ -114,13 +118,15 @@ TEST_CASE("### countStack - Comprehensive testing ###", "[countStack]")
         int count = countStack(largeStack);
 
         REQUIRE(count == LARGE_SIZE);
-        REQUIRE(largeStack.size() == LARGE_SIZE);  // Stack should remain unchanged
+        REQUIRE(largeStack.size() ==
+                LARGE_SIZE);  // Stack should remain unchanged
     }
 }
 
 /**
  * @brief Test suite for deleteOccurr function
- * Tests the function that deletes all occurrences of a specified item from a stack
+ * Tests the function that deletes all occurrences of a specified item from a
+ * stack
  */
 TEST_CASE("### deleteOccurr - Comprehensive testing ###", "[deleteOccurr]")
 {
@@ -219,8 +225,9 @@ TEST_CASE("### deleteOccurr - Comprehensive testing ###", "[deleteOccurr]")
 
 /**
  * @brief Test suite for inLanguage function
- * Tests the function that determines if a string is in language L = {s s' : s is a string, s' = reverse(s)}
- * Valid strings must have even length >= 2 and be palindromes
+ * Tests the function that determines if a string is in language L = {s s' : s
+ * is a string, s' = reverse(s)} Valid strings must have even length >= 2 and be
+ * palindromes
  */
 TEST_CASE("### inLanguage - Comprehensive testing ###", "[inLanguage]")
 {
@@ -275,6 +282,8 @@ TEST_CASE("### inLanguage - Comprehensive testing ###", "[inLanguage]")
         REQUIRE(inLanguage("abcddcba") == true);
         REQUIRE(inLanguage("raceacar") == true);
         REQUIRE(inLanguage("wasitacaroracatisaw") == true);
-        REQUIRE(inLanguage("abcdefghijklmnopqrstuvwxyzzyxwvutsrqponmlkjihgfedcba") == true);
+        REQUIRE(inLanguage(
+                    "abcdefghijklmnopqrstuvwxyzzyxwvutsrqponmlkjihgfedcba") ==
+                true);
     }
 }

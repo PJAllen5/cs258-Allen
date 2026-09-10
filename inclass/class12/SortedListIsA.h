@@ -1,5 +1,5 @@
-//  Created by Frank M. Carrano and Timothy M. Henry.
-//  Copyright (c) 2017 Pearson Education, Hoboken, New Jersey.
+//   Created by Frank M. Carrano and Timothy M. Henry.
+//   Copyright (c) 2017 Pearson Education, Hoboken, New Jersey.
 
 /** ADT sorted list using ADT list.
  Listing 12-4.
@@ -14,7 +14,8 @@
 #include "PrecondViolatedExcep.h"
 
 template<class ItemType>
-class SortedListIsA : public LinkedList<ItemType>  // , public SortedListInterface<ItemType>
+class SortedListIsA
+    : public LinkedList<ItemType>  // , public SortedListInterface<ItemType>
 {
 public:
     SortedListIsA();

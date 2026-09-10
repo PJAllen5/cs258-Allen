@@ -1,6 +1,7 @@
 /**
  * @file code.hpp
- * @brief Header file containing stack manipulation functions and string language validation
+ * @brief Header file containing stack manipulation functions and string
+ * language validation
  */
 
 #include <string>
@@ -9,8 +10,8 @@
 /**
  * @brief Displays the contents of a stack in reverse order (bottom to top)
  *
- * This function displays stack elements such that the top element is displayed last,
- * effectively showing the stack contents in the order they were inserted.
+ * This function displays stack elements such that the top element is displayed
+ * last, effectively showing the stack contents in the order they were inserted.
  * The original stack remains unchanged after the operation.
  *
  * @param aStack Reference to the stack to be displayed
@@ -49,23 +50,25 @@ int countStack(std::stack<int>& aStack);
 std::stack<int> deleteOccurr(std::stack<int>& aStack, int item);
 
 /**
- * @brief Determines whether a string belongs to language L = {s s' : s is a string, s' = reverse(s)}
+ * @brief Determines whether a string belongs to language L = {s s' : s is a
+ * string, s' = reverse(s)}
  *
- * This function checks if a string is a valid member of the specified formal language.
- * A string is in the language if:
+ * This function checks if a string is a valid member of the specified formal
+ * language. A string is in the language if:
  * - It has even length and is at least 2 characters long
  * - It is a palindrome (reads the same forwards and backwards)
  * - It is not empty and not a single character
  *
- * The function uses a stack-based approach to determine if the string is a palindrome
- * by comparing the first half with the reverse of the second half.
+ * The function uses a stack-based approach to determine if the string is a
+ * palindrome by comparing the first half with the reverse of the second half.
  *
  * @param theString The string to be evaluated
  * @return bool True if the string is in language L, false otherwise
  * @pre theString can be any valid std::string
  * @post Returns true for valid palindromes of even length >= 2, false otherwise
  *
- * @note Empty strings, single characters, and odd-length strings are not in the language
+ * @note Empty strings, single characters, and odd-length strings are not in the
+ * language
  * @note The comparison is case-sensitive
  */
 bool inLanguage(std::string theString);

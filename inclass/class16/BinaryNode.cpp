@@ -1,5 +1,5 @@
-//  Created by Frank M. Carrano and Timothy M. Henry.
-//  Copyright (c) 2017 Pearson Education, Hoboken, New Jersey.
+//   Created by Frank M. Carrano and Timothy M. Henry.
+//   Copyright (c) 2017 Pearson Education, Hoboken, New Jersey.
 
 /** @file BinaryNode.cpp */
 
@@ -45,13 +45,15 @@ bool BinaryNode<ItemType>::isLeaf() const
 }
 
 template<class ItemType>
-void BinaryNode<ItemType>::setLeftChildPtr(std::shared_ptr<BinaryNode<ItemType>> leftPtr)
+void BinaryNode<ItemType>::setLeftChildPtr(
+    std::shared_ptr<BinaryNode<ItemType>> leftPtr)
 {
     leftChildPtr = leftPtr;
 }  // end setLeftChildPtr
 
 template<class ItemType>
-void BinaryNode<ItemType>::setRightChildPtr(std::shared_ptr<BinaryNode<ItemType>> rightPtr)
+void BinaryNode<ItemType>::setRightChildPtr(
+    std::shared_ptr<BinaryNode<ItemType>> rightPtr)
 {
     rightChildPtr = rightPtr;
 }  // end setRightChildPtr

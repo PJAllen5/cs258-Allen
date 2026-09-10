@@ -1,5 +1,5 @@
-//  Created by Frank M. Carrano and Timothy M. Henry.
-//  Copyright (c) 2017 Pearson Education, Hoboken, New Jersey.
+//   Created by Frank M. Carrano and Timothy M. Henry.
+//   Copyright (c) 2017 Pearson Education, Hoboken, New Jersey.
 
 /** ADT bag: Link-based implementation.
     @file LinkedBag.cpp */
@@ -17,7 +17,8 @@ template<class ItemType>
 LinkedBag<ItemType>::LinkedBag(const LinkedBag<ItemType>& aBag)
 {
     itemCount = aBag.itemCount;
-    Node<ItemType>* origChainPtr = aBag.headPtr;  // Points to nodes in original chain
+    Node<ItemType>* origChainPtr =
+        aBag.headPtr;  // Points to nodes in original chain
 
     if (origChainPtr == nullptr)
         headPtr = nullptr;  // Original bag is empty
@@ -28,8 +29,10 @@ LinkedBag<ItemType>::LinkedBag(const LinkedBag<ItemType>& aBag)
         headPtr->setItem(origChainPtr->getItem());
 
         // Copy remaining nodes
-        Node<ItemType>* newChainPtr = headPtr;   // Points to last node in new chain
-        origChainPtr = origChainPtr->getNext();  // Advance original-chain pointer
+        Node<ItemType>* newChainPtr =
+            headPtr;  // Points to last node in new chain
+        origChainPtr =
+            origChainPtr->getNext();  // Advance original-chain pointer
 
         while (origChainPtr != nullptr)
         {
@@ -78,8 +81,10 @@ bool LinkedBag<ItemType>::add(const ItemType& newEntry)
     // (headPtr is null if chain is empty)
     Node<ItemType>* nextNodePtr = new Node<ItemType>();
     nextNodePtr->setItem(newEntry);
-    nextNodePtr->setNext(headPtr);  // New node points to chain
-                                    //   Node<ItemType>* nextNodePtr = new Node<ItemType>(newEntry, headPtr); // alternate code
+    nextNodePtr->setNext(
+        headPtr);  // New node points to chain
+                   //   Node<ItemType>* nextNodePtr = new
+                   //   Node<ItemType>(newEntry, headPtr); // alternate code
 
     headPtr = nextNodePtr;  // New node is now first node
     itemCount++;

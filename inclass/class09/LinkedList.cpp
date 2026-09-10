@@ -1,5 +1,5 @@
-//  Created by Frank M. Carrano and Timothy M. Henry.
-//  Copyright (c) 2017 Pearson Education, Hoboken, New Jersey.
+//   Created by Frank M. Carrano and Timothy M. Henry.
+//   Copyright (c) 2017 Pearson Education, Hoboken, New Jersey.
 
 /** Implementation file for the class LinkedList.
  @file LinkedList.cpp */
@@ -13,9 +13,11 @@ LinkedList<ItemType>::LinkedList() : headPtr(nullptr), itemCount(0)
 }  // end default constructor
 
 template<class ItemType>
-LinkedList<ItemType>::LinkedList(const LinkedList<ItemType>& aList) : itemCount(aList.itemCount)
+LinkedList<ItemType>::LinkedList(const LinkedList<ItemType>& aList)
+    : itemCount(aList.itemCount)
 {
-    Node<ItemType>* origChainPtr = aList.headPtr;  // Points to nodes in original chain
+    Node<ItemType>* origChainPtr =
+        aList.headPtr;  // Points to nodes in original chain
 
     if (origChainPtr == nullptr)
         headPtr = nullptr;  // Original list is empty
@@ -26,8 +28,10 @@ LinkedList<ItemType>::LinkedList(const LinkedList<ItemType>& aList) : itemCount(
         headPtr->setItem(origChainPtr->getItem());
 
         // Copy remaining nodes
-        Node<ItemType>* newChainPtr = headPtr;   // Points to last node in new chain
-        origChainPtr = origChainPtr->getNext();  // Advance original-chain pointer
+        Node<ItemType>* newChainPtr =
+            headPtr;  // Points to last node in new chain
+        origChainPtr =
+            origChainPtr->getNext();  // Advance original-chain pointer
         while (origChainPtr != nullptr)
         {
             // Get next item from original chain

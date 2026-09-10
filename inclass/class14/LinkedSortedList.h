@@ -1,5 +1,5 @@
-//  Created by Frank M. Carrano and Timothy M. Henry.
-//  Copyright (c) 2017 Pearson Education, Hoboken, New Jersey.
+//   Created by Frank M. Carrano and Timothy M. Henry.
+//   Copyright (c) 2017 Pearson Education, Hoboken, New Jersey.
 
 // Listing 12-2
 
@@ -18,8 +18,9 @@ template<class ItemType>
 class LinkedSortedList : public SortedListInterface<ItemType>
 {
 private:
-    std::shared_ptr<Node<ItemType>> headPtr;  // Pointer to first node in the chain
-    int itemCount;                            // Current count of list items
+    std::shared_ptr<Node<ItemType>>
+        headPtr;    // Pointer to first node in the chain
+    int itemCount;  // Current count of list items
 
     // Locates the node that is before the node that should or does
     // contain the given entry.

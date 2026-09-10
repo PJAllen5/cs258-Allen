@@ -3,7 +3,8 @@ using namespace std;
 
 #include "event.h"
 
-Event::Event(int time, int priority) : time(time), priority(priority), waittime(-1)
+Event::Event(int time, int priority)
+    : time(time), priority(priority), waittime(-1)
 {
 }
 int Event::getPriority()

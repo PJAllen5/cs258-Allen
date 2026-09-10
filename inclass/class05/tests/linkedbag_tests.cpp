@@ -6,7 +6,8 @@
 
 /**
  * Test the recursive frequency counter method getFreqRec.
- * Verifies that it returns the same results as the iterative getFrequencyOf method.
+ * Verifies that it returns the same results as the iterative getFrequencyOf
+ * method.
  */
 TEST_CASE("getFreqRec - Basic functionality")
 {
@@ -179,7 +180,8 @@ TEST_CASE("removeRandom - Basic functionality")
 
     REQUIRE(bag.getCurrentSize() == initialSize - 1);
     REQUIRE((removedItem == 1 || removedItem == 2 || removedItem == 3));
-    REQUIRE_FALSE(bag.contains(removedItem) && bag.getFrequencyOf(removedItem) == 0);
+    REQUIRE_FALSE(bag.contains(removedItem) &&
+                  bag.getFrequencyOf(removedItem) == 0);
 }
 
 /**

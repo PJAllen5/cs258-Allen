@@ -1,5 +1,5 @@
-//  Created by Frank M. Carrano and Timothy M. Henry.
-//  Copyright (c) 2017 Pearson Education, Hoboken, New Jersey.
+//   Created by Frank M. Carrano and Timothy M. Henry.
+//   Copyright (c) 2017 Pearson Education, Hoboken, New Jersey.
 
 // Listing 16-4.
 
@@ -34,9 +34,9 @@ protected:
 
     // Removes the given target value from the tree while maintaining a
     // binary search tree.
-    std::shared_ptr<BinaryNode<ItemType>> removeValue(std::shared_ptr<BinaryNode<ItemType>> subTreePtr,
-                                                      const ItemType target,
-                                                      bool& success) override;
+    std::shared_ptr<BinaryNode<ItemType>>
+    removeValue(std::shared_ptr<BinaryNode<ItemType>> subTreePtr,
+                const ItemType target, bool& success) override;
 
     // Removes a given node from a tree while maintaining a
     // binary search tree.
@@ -87,7 +87,8 @@ public:
     //------------------------------------------------------------
     // Overloaded Operator Section.
     //------------------------------------------------------------
-    BinarySearchTree<ItemType>& operator=(const BinarySearchTree<ItemType>& rightHandSide);
+    BinarySearchTree<ItemType>&
+    operator=(const BinarySearchTree<ItemType>& rightHandSide);
 };  // end BinarySearchTree
 
 #include "BinarySearchTree.cpp"

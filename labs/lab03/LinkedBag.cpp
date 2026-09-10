@@ -1,5 +1,5 @@
-//  Created by Frank M. Carrano and Timothy M. Henry.
-//  Copyright (c) 2017 Pearson Education, Hoboken, New Jersey.
+//   Created by Frank M. Carrano and Timothy M. Henry.
+//   Copyright (c) 2017 Pearson Education, Hoboken, New Jersey.
 
 /** ADT bag: Link-based implementation.
     @file LinkedBag.cpp */
@@ -31,8 +31,9 @@ LinkedBag<ItemType>::LinkedBag(const LinkedBag<ItemType>& aBag)
         headPtr->setItem(origChainPtr->getItem());
 
         // Copy remaining nodes
-        Node<ItemType>* newChainPtr = headPtr;   // Points last node in new chain
-        origChainPtr = origChainPtr->getNext();  // Advance original-chain pointer
+        Node<ItemType>* newChainPtr = headPtr;  // Points last node in new chain
+        origChainPtr =
+            origChainPtr->getNext();  // Advance original-chain pointer
 
         while (origChainPtr != nullptr)
         {

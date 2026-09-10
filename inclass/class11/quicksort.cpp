@@ -4,7 +4,8 @@
 #include <iostream>
 #include <string>
 
-static const int MIN_SIZE = 10;  // Smallest size of an array that quicksort will sort
+static const int MIN_SIZE =
+    10;  // Smallest size of an array that quicksort will sort
 
 /** Sorts the items in an array into ascending order.
  @pre  None.
@@ -118,7 +119,8 @@ int partition(ItemType theArray[], int first, int last)
             done = true;
     }  // end while
 
-    // Place pivot in proper position between S1 and S2, and mark its new location
+    // Place pivot in proper position between S1 and S2, and mark its new
+    // location
     std::swap(theArray[pivotIndex], theArray[indexFromLeft]);
     pivotIndex = indexFromLeft;
 
@@ -160,7 +162,9 @@ int main()
         std::cout << a[i] << " ";
     std::cout << std::endl;
 
-    std::string b[26] = {"Z", "Y", "X", "W", "V", "U", "T", "S", "R", "Q", "P", "O", "N", "M", "L", "K", "J", "I", "H", "G", "F", "E", "D", "C", "B", "A"};
+    std::string b[26] = {"Z", "Y", "X", "W", "V", "U", "T", "S", "R",
+                         "Q", "P", "O", "N", "M", "L", "K", "J", "I",
+                         "H", "G", "F", "E", "D", "C", "B", "A"};
     quickSort(b, 0, 25);
     for (int i = 0; i < 26; i++)
         std::cout << b[i] << " ";

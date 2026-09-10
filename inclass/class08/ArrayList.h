@@ -1,5 +1,5 @@
-//  Created by Frank M. Carrano and Timothy M. Henry.
-//  Copyright (c) 2017 Pearson Education, Hoboken, New Jersey.
+//   Created by Frank M. Carrano and Timothy M. Henry.
+//   Copyright (c) 2017 Pearson Education, Hoboken, New Jersey.
 
 /** ADT list: Array-based implementation.
     Listing 9-1.
@@ -15,10 +15,12 @@ template<class ItemType>
 class ArrayList : public ListInterface<ItemType>
 {
 private:
-    static const int DEFAULT_CAPACITY = 5;  // Small capacity to test for a full list
-    ItemType items[DEFAULT_CAPACITY + 1];   // Array of list items (not using element [0]
-    int itemCount;                          // Current count of list items
-    int maxItems;                           // Maximum capacity of the list
+    static const int DEFAULT_CAPACITY =
+        5;  // Small capacity to test for a full list
+    ItemType items[DEFAULT_CAPACITY +
+                   1];  // Array of list items (not using element [0]
+    int itemCount;      // Current count of list items
+    int maxItems;       // Maximum capacity of the list
 
 public:
     ArrayList();

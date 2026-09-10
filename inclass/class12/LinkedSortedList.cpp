@@ -1,5 +1,5 @@
-//  Created by Frank M. Carrano and Timothy M. Henry.
-//  Copyright (c) 2017 Pearson Education, Hoboken, New Jersey.
+//   Created by Frank M. Carrano and Timothy M. Henry.
+//   Copyright (c) 2017 Pearson Education, Hoboken, New Jersey.
 
 /** Implementation file for the class LinkedSortedList.
  @file LinkedSortedList.cpp */
@@ -13,21 +13,24 @@ LinkedSortedList<ItemType>::LinkedSortedList() : headPtr(nullptr), itemCount(0)
 }  // end default constructor
 
 template<class ItemType>
-LinkedSortedList<ItemType>::LinkedSortedList(const LinkedSortedList<ItemType>& aList)
+LinkedSortedList<ItemType>::LinkedSortedList(
+    const LinkedSortedList<ItemType>& aList)
 {
     headPtr = copyChain(aList.headPtr);
     itemCount = aList.itemCount;
 }  // end copy constructor
 
 template<class ItemType>
-auto LinkedSortedList<ItemType>::copyChain(const std::shared_ptr<Node<ItemType>>& origChainPtr)
+auto LinkedSortedList<ItemType>::copyChain(
+    const std::shared_ptr<Node<ItemType>>& origChainPtr)
 {
     std::shared_ptr<Node<ItemType>> copiedChainPtr;
     if (origChainPtr != nullptr)
     {
         // Build new chain from given one
         // Create new node with the current item
-        copiedChainPtr = std::make_shared<Node<ItemType>>(origChainPtr->getItem());
+        copiedChainPtr =
+            std::make_shared<Node<ItemType>>(origChainPtr->getItem());
         // have the node point to the rest of the chain
         copiedChainPtr->setNext(copyChain(origChainPtr->getNext()));
     }  // end if
@@ -44,7 +47,8 @@ LinkedSortedList<ItemType>::~LinkedSortedList()
 template<class ItemType>
 bool LinkedSortedList<ItemType>::insertSorted(const ItemType& newEntry)
 {
-    auto newNodePtr = std::make_shared<Node<ItemType>>(newEntry);  // one memory allocation
+    auto newNodePtr =
+        std::make_shared<Node<ItemType>>(newEntry);  // one memory allocation
     auto prevPtr = getNodeBefore(newEntry);
 
     if (isEmpty() || (prevPtr == nullptr))  // Add at beginning
@@ -191,7 +195,8 @@ template<class ItemType>
 auto LinkedSortedList<ItemType>::getNodeBefore(const ItemType& anEntry) const
 {
     auto curPtr = headPtr;
-    std::shared_ptr<Node<ItemType>> prevPtr;  // Default constructor initializes to nullptr and refCount = 0
+    std::shared_ptr<Node<ItemType>>
+        prevPtr;  // Default constructor initializes to nullptr and refCount = 0
 
     while ((curPtr != nullptr) && (anEntry > curPtr->getItem()))
     {

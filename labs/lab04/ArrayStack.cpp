@@ -1,5 +1,5 @@
-//  Created by Frank M. Carrano and Timothy M. Henry.
-//  Copyright (c) 2017 Pearson Education, Hoboken, New Jersey.
+//   Created by Frank M. Carrano and Timothy M. Henry.
+//   Copyright (c) 2017 Pearson Education, Hoboken, New Jersey.
 
 /** Listing 7-1
     @file ArrayStack.cpp */
@@ -7,7 +7,8 @@
 #include "ArrayStack.h"  // Header file
 
 template<class ItemType>
-ArrayStack<ItemType>::ArrayStack() : items(new ItemType[MAX_STACK]), top(-1), capacity(MAX_STACK)
+ArrayStack<ItemType>::ArrayStack()
+    : items(new ItemType[MAX_STACK]), top(-1), capacity(MAX_STACK)
 {
 }  // end default constructor
 
@@ -17,8 +18,9 @@ ArrayStack<ItemType>::ArrayStack() : items(new ItemType[MAX_STACK]), top(-1), ca
 // stacks would share one array and both would try to free it.
 
 template<class ItemType>
-ArrayStack<ItemType>::ArrayStack(const ArrayStack<ItemType>& aStack) : items(new ItemType[aStack.capacity]),
-                                                                       top(aStack.top), capacity(aStack.capacity)
+ArrayStack<ItemType>::ArrayStack(const ArrayStack<ItemType>& aStack)
+    : items(new ItemType[aStack.capacity]), top(aStack.top),
+      capacity(aStack.capacity)
 {
     for (int i = 0; i <= top; i++)
     {
@@ -27,8 +29,8 @@ ArrayStack<ItemType>::ArrayStack(const ArrayStack<ItemType>& aStack) : items(new
 }  // end copy constructor
 
 template<class ItemType>
-ArrayStack<ItemType>& ArrayStack<ItemType>::operator=(
-    const ArrayStack<ItemType>& aStack)
+ArrayStack<ItemType>&
+ArrayStack<ItemType>::operator=(const ArrayStack<ItemType>& aStack)
 {
     if (this != &aStack)
     {  // Guard against self assignment

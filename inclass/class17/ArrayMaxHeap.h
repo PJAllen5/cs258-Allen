@@ -16,11 +16,12 @@ template<class ItemType>
 class ArrayMaxHeap : public HeapInterface<ItemType>
 {
 private:
-    static const int ROOT_INDEX = 0;         // Helps with readability
-    static const int DEFAULT_CAPACITY = 21;  // Small capacity to test for a full heap
-    std::unique_ptr<ItemType[]> items;       // Array of heap items
-    int itemCount;                           // Current count of heap items
-    int maxItems;                            // Maximum capacity of the heap
+    static const int ROOT_INDEX = 0;  // Helps with readability
+    static const int DEFAULT_CAPACITY =
+        21;  // Small capacity to test for a full heap
+    std::unique_ptr<ItemType[]> items;  // Array of heap items
+    int itemCount;                      // Current count of heap items
+    int maxItems;                       // Maximum capacity of the heap
 
     // ---------------------------------------------------------------------
     // Most of the private utility methods use an array index as a parameter

@@ -1,4 +1,5 @@
-#define CATCH_CONFIG_MAIN  // This tells Catch to provide a main() -     only do this in one cpp file
+#define CATCH_CONFIG_MAIN  // This tells Catch to provide a main() -     only do
+                           // this in one cpp file
 
 #include "../code.hpp"
 #include "catch.hpp"
@@ -6,7 +7,8 @@
 /**
  * @brief Test suite for sumOfBag function
  * Tests the sumOfBag function with basic positive integers
- * Verifies that the sum calculation works correctly for a bag containing 4, 8, and 20
+ * Verifies that the sum calculation works correctly for a bag containing 4, 8,
+ * and 20
  */
 TEST_CASE("### In Class - 1 - sumOfBag ###", "[test1]")
 {
@@ -54,7 +56,8 @@ TEST_CASE("sumOfBag - Negative numbers", "[sumOfBag]")
 
 /**
  * @brief Test sumOfBag with mixed positive and negative numbers
- * Verifies that both positive and negative numbers are handled correctly together
+ * Verifies that both positive and negative numbers are handled correctly
+ * together
  */
 TEST_CASE("sumOfBag - Mixed positive and negative", "[sumOfBag]")
 {

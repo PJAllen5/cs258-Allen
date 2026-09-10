@@ -26,10 +26,7 @@ int sumOfInts(int start, int end)
 }  // end sumOfInts
 
 
-void writeInts(int n)
-{
-
-}  // end writeInts
+void writeInts(int n) {}  // end writeInts
 
 
 int sumOfN(int n, int array[])

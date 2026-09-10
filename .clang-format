@@ -32,9 +32,15 @@ ReferenceAlignment: Left
 # template<class ItemType> with no space, as the textbook writes it.
 SpaceAfterTemplateKeyword: false
 
-# Do not re-wrap long lines.  Line length is a judgement call, and reflowing
-# the textbook's carefully laid out comments does more harm than good.
-ColumnLimit: 0
+# Keep the template parameter list on its own line above the class or function.
+# Without this, a short declaration that happens to fit inside 80 columns gets
+# joined onto one line, which is not how the textbook code is written.
+AlwaysBreakTemplateDeclarations: Yes
+
+# Wrap at 80 columns - the width used by both the LLVM and Google C++ style
+# guides, and what fits a standard terminal.  Long lines become hanging indents
+# rather than running off the side of the screen.
+ColumnLimit: 80
 
 # Leave #include order alone - some of these headers depend on being included
 # in a particular order.
@@ -50,9 +56,10 @@ AllowShortLoopsOnASingleLine: false
 # Keep that, rather than churning every one of them to a single space.
 SpacesBeforeTrailingComments: 2
 
-# Do not re-wrap or re-indent existing comments.  The textbook's comment
-# blocks are laid out deliberately and reflowing them only creates noise.
-ReflowComments: false
+# Wrap comments to the column limit as well.  Without this, code would be
+# wrapped at 80 while comments ran off the screen - and documentation is worth
+# real credit in this course, so it should be held to the same standard.
+ReflowComments: true
 
 KeepEmptyLinesAtTheStartOfBlocks: true
 MaxEmptyLinesToKeep: 2

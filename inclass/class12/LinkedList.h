@@ -1,5 +1,5 @@
-//  Created by Frank M. Carrano and Timothy M. Henry.
-//  Copyright (c) 2017 Pearson Education, Hoboken, New Jersey.
+//   Created by Frank M. Carrano and Timothy M. Henry.
+//   Copyright (c) 2017 Pearson Education, Hoboken, New Jersey.
 
 /** ADT list: Link-based implementation.
     Listing 9-2.
@@ -17,9 +17,10 @@ template<class ItemType>
 class LinkedList : public ListInterface<ItemType>
 {
 private:
-    std::shared_ptr<Node<ItemType>> headPtr;  // Pointer to first node in the chain;
-                                              // (contains the first entry in the list)
-    int itemCount;                            // Current count of list items
+    std::shared_ptr<Node<ItemType>>
+        headPtr;    // Pointer to first node in the chain;
+                    // (contains the first entry in the list)
+    int itemCount;  // Current count of list items
 
     // Locates a specified node in this linked list.
     // @pre  position is the number of the desired node;

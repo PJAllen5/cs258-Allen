@@ -14,37 +14,37 @@ public:
     Event(int time, int priority);
 
     /**
-        * @brief fetches the priority of the event
-        *
-        * @return priority
-        */
+     * @brief fetches the priority of the event
+     *
+     * @return priority
+     */
     int getPriority();
     /**
-        * @brief returns the time taken by the event
-        *
-        * @return time
-        */
+     * @brief returns the time taken by the event
+     *
+     * @return time
+     */
     int getTime();
     /**
-        * @brief returns the time spent waiting for this event
-        *
-        * @return waittime
-        */
+     * @brief returns the time spent waiting for this event
+     *
+     * @return waittime
+     */
     int getWaitTime();
     /**
-        * @brief updates the waittime
-        *
-        * @param time the new waittime
-        */
+     * @brief updates the waittime
+     *
+     * @param time the new waittime
+     */
     void updateWaitTime(int time);
 
     /**
-        * @brief overloaded == operator
-        *
-        * @param c1 the first event
-        * @param c2 the 2nd event to compare
-        * @return true if c1 == c2
-        */
+     * @brief overloaded == operator
+     *
+     * @param c1 the first event
+     * @param c2 the 2nd event to compare
+     * @return true if c1 == c2
+     */
     friend bool operator==(const Event& c1, const Event& c2);
     friend bool operator!=(const Event& c1, const Event& c2);
 

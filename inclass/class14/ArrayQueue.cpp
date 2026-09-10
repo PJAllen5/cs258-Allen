@@ -1,5 +1,5 @@
-//  Created by Frank M. Carrano and Timothy M. Henry.
-//  Copyright (c) 2017 Pearson Education, Hoboken, New Jersey.
+//   Created by Frank M. Carrano and Timothy M. Henry.
+//   Copyright (c) 2017 Pearson Education, Hoboken, New Jersey.
 
 /** ADT queue: Circular array-based implementation.
  Listing 14-5.
@@ -8,7 +8,8 @@
 #include "ArrayQueue.h"  // Header file
 
 template<class ItemType>
-ArrayQueue<ItemType>::ArrayQueue() : front(0), back(DEFAULT_CAPACITY - 1), count(0)
+ArrayQueue<ItemType>::ArrayQueue()
+    : front(0), back(DEFAULT_CAPACITY - 1), count(0)
 {
 }  // end default constructor
 

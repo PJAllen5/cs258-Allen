@@ -43,7 +43,8 @@ void ArrayMaxHeap<ItemType>::heapRebuild(const int subTreeNodeIndex)
         int largerChildIndex = rightChildIndex;  // make assumption
 
         // Check to see if has rightChild and then check if left is larger
-        if ((largerChildIndex >= itemCount) || (items[leftChildIndex] > items[rightChildIndex]))
+        if ((largerChildIndex >= itemCount) ||
+            (items[leftChildIndex] > items[rightChildIndex]))
         {
             largerChildIndex = leftChildIndex;  // Asssumption was wrong
         }  // end if
@@ -76,14 +77,16 @@ void ArrayMaxHeap<ItemType>::heapCreate()
 //******************************************************************
 
 template<class ItemType>
-ArrayMaxHeap<ItemType>::ArrayMaxHeap() : itemCount(0), maxItems(DEFAULT_CAPACITY)
+ArrayMaxHeap<ItemType>::ArrayMaxHeap()
+    : itemCount(0), maxItems(DEFAULT_CAPACITY)
 {
     items = std::make_unique<ItemType[]>(DEFAULT_CAPACITY);
 }  // end default constructor
 
 template<class ItemType>
-ArrayMaxHeap<ItemType>::
-    ArrayMaxHeap(const ItemType someArray[], const int arraySize) : itemCount(arraySize), maxItems(2 * arraySize)
+ArrayMaxHeap<ItemType>::ArrayMaxHeap(const ItemType someArray[],
+                                     const int arraySize)
+    : itemCount(arraySize), maxItems(2 * arraySize)
 {
     // Allocate the array
     items = std::make_unique<ItemType[]>(2 * arraySize);

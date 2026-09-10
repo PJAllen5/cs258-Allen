@@ -2,8 +2,9 @@
  * @file code.hpp
  * @brief Header file containing function declarations for bag operations
  *
- * This file contains declarations for client functions that operate on ArrayBag objects.
- * Includes functions for computing sum of integers in a bag and replacing items in a string bag.
+ * This file contains declarations for client functions that operate on ArrayBag
+ * objects. Includes functions for computing sum of integers in a bag and
+ * replacing items in a string bag.
  */
 
 #include <string>
@@ -30,6 +31,8 @@ int sumOfBag(ArrayBag<int>& aBag);
  * @param aBag Reference to an ArrayBag containing strings
  * @param itemToReplace The string item to search for and replace
  * @param replacement The string to replace the found item with
- * @return bool true if the replacement was successful, false if item was not found
+ * @return bool true if the replacement was successful, false if item was not
+ * found
  */
-bool replace(ArrayBag<std::string>& aBag, std::string itemToReplace, std::string replacement);
+bool replace(ArrayBag<std::string>& aBag, std::string itemToReplace,
+             std::string replacement);

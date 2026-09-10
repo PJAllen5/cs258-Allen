@@ -3,7 +3,7 @@
 #include "event.h"
 using namespace std;
 
-/* Priority queue library:  https://cplusplus.com/reference/queue/priority_queue/
+/* Priority queue library: https://cplusplus.com/reference/queue/priority_queue/
  * methods:
     empty()
     size()

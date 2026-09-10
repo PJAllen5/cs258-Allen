@@ -60,7 +60,8 @@ TEST_CASE("### polynomial - change the end coefficients ###", "[test6]")
 }
 
 // coefficients are doubles, and may be negative
-TEST_CASE("### polynomial - fractional and negative coefficients ###", "[test7]")
+TEST_CASE("### polynomial - fractional and negative coefficients ###",
+          "[test7]")
 {
     double testArr[3] = {1.5, -2.25, 0.125};
     Polynomial myPoly(testArr, 2);

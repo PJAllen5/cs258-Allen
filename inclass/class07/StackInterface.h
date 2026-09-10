@@ -1,6 +1,6 @@
-//  Created by Frank M. Carrano and Timothy M. Henry.
-//  Copyright (c) 2017 Pearson Education, Hoboken, New Jersey.
-//  Copyright (c) 2016 __Pearson Education__. All rights reserved.
+//   Created by Frank M. Carrano and Timothy M. Henry.
+//   Copyright (c) 2017 Pearson Education, Hoboken, New Jersey.
+//   Copyright (c) 2016 __Pearson Education__. All rights reserved.
 
 /** @file StackInterface.h */
 

@@ -25,8 +25,8 @@ directory with the Catch2 unit-testing header.
 
 ## One-time setup
 
-Setting up your own repository is **Lab 1**. Full instructions, with screenshots, are in
-the Lab 1 codelab:
+Setting up your own repository is **Lab 1**. Full instructions are in the Lab 1
+codelab:
 
 > <https://teaching.pouliot.dev/cs258/>
 

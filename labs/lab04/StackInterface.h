@@ -1,6 +1,6 @@
-//  Created by Frank M. Carrano and Timothy M. Henry.
-//  Copyright (c) 2017 Pearson Education, Hoboken, New Jersey.
-//  Copyright (c) 2016 __Pearson Education__. All rights reserved.
+//   Created by Frank M. Carrano and Timothy M. Henry.
+//   Copyright (c) 2017 Pearson Education, Hoboken, New Jersey.
+//   Copyright (c) 2016 __Pearson Education__. All rights reserved.
 
 /** @file StackInterface.h */
 
@@ -16,7 +16,8 @@ public:
     virtual bool isEmpty() const = 0;
 
     /** Adds a new entry to the top of this stack.
-        @post If the operation was successful, newEntry is at the top of the stack.
+        @post If the operation was successful, newEntry is at the top of the
+       stack.
         @param newEntry The object to be added as a new entry.
         @return True if the addition is successful or false if not. */
     virtual bool push(const ItemType& newEntry) = 0;

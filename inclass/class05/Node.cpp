@@ -1,10 +1,10 @@
-//  Created by Frank M. Carrano and Timothy M. Henry.
-//  Copyright (c) 2017 Pearson Education, Hoboken, New Jersey.
+//   Created by Frank M. Carrano and Timothy M. Henry.
+//   Copyright (c) 2017 Pearson Education, Hoboken, New Jersey.
 
 /** @file Node.cpp
     Listing 4-2 */
 #include "Node.h"
-//#include <cstddef>
+// #include <cstddef>
 
 template<class ItemType>
 Node<ItemType>::Node() : next(nullptr)
@@ -17,7 +17,8 @@ Node<ItemType>::Node(const ItemType& anItem) : item(anItem), next(nullptr)
 }  // end constructor
 
 template<class ItemType>
-Node<ItemType>::Node(const ItemType& anItem, Node<ItemType>* nextNodePtr) : item(anItem), next(nextNodePtr)
+Node<ItemType>::Node(const ItemType& anItem, Node<ItemType>* nextNodePtr)
+    : item(anItem), next(nextNodePtr)
 {
 }  // end constructor
 

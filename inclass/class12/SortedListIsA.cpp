@@ -1,5 +1,5 @@
-//  Created by Frank M. Carrano and Timothy M. Henry.
-//  Copyright (c) 2017 Pearson Education, Hoboken, New Jersey.
+//   Created by Frank M. Carrano and Timothy M. Henry.
+//   Copyright (c) 2017 Pearson Education, Hoboken, New Jersey.
 
 /** Implementation file for the class SortedListIsA.
  @file SortedListIsA.cpp */
@@ -32,7 +32,8 @@ bool SortedListIsA<ItemType>::insertSorted(const ItemType& newEntry)
     // We need to call the LinkedList version here since the
     // SortedListIsA version does nothing but return false
     LinkedList<ItemType>::insert(newPosition, newEntry);
-    // this->insert(newPosition, newEntry); // WRONG as it calls the overriding version
+    // this->insert(newPosition, newEntry); // WRONG as it calls the overriding
+    // version
     return true;
 }  // end insertSorted
 
