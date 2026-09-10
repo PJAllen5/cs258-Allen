@@ -7,7 +7,7 @@
 #include "SortedListAsA.h"  // Header file
 #include <cassert>
 #include <cmath>
-  
+
 template<class ItemType>
 SortedListAsA<ItemType>::SortedListAsA()
 {
@@ -15,9 +15,9 @@ SortedListAsA<ItemType>::SortedListAsA()
 
 template<class ItemType>
 SortedListAsA<ItemType>::SortedListAsA(const SortedListAsA<ItemType>& sList)
-		:LinkedList<ItemType>(static_cast<LinkedList<ItemType>>(sList))
+    : LinkedList<ItemType>(static_cast<LinkedList<ItemType>>(sList))
 {
-	
+
 }  // end copy constructor
 
 template<class ItemType>
@@ -29,52 +29,52 @@ SortedListAsA<ItemType>::~SortedListAsA()
 template<class ItemType>
 bool SortedListAsA<ItemType>::insertSorted(const ItemType& newEntry)
 {
-   int newPosition = abs(getPosition(newEntry));
-   return LinkedList<ItemType>::insert(newPosition, newEntry);
+    int newPosition = abs(getPosition(newEntry));
+    return LinkedList<ItemType>::insert(newPosition, newEntry);
 }  // end insertSorted
 
 template<class ItemType>
 bool SortedListAsA<ItemType>::removeSorted(const ItemType& anEntry)
 {
-   bool ableToDelete = false;
-   // if (!this->isEmpty())
-   if (!LinkedList<ItemType>::isEmpty())
-   {
-      int position = getPosition(anEntry);
-             
-      ableToDelete = position > 0;
-      if (ableToDelete)
-      {
-         ableToDelete = LinkedList<ItemType>::remove(position);
-//       ableToDelete = this->remove(position);
-      }  // end if
-   }  // end if
+    bool ableToDelete = false;
+    // if (!this->isEmpty())
+    if (!LinkedList<ItemType>::isEmpty())
+    {
+        int position = getPosition(anEntry);
 
-   return ableToDelete;
+        ableToDelete = position > 0;
+        if (ableToDelete)
+        {
+            ableToDelete = LinkedList<ItemType>::remove(position);
+            //       ableToDelete = this->remove(position);
+        }  // end if
+    }  // end if
+
+    return ableToDelete;
 }  // end removeSorted
 
 template<class ItemType>
 int SortedListAsA<ItemType>::getPosition(const ItemType& anEntry) const
 {
-   int position = 1;
-   int length = LinkedList<ItemType>::getLength();
-   // int length = this->getLength();
-   
-   // while ( (position <= length) && (anEntry > this->getEntry(position)) )
-   while ( (position <= length) && 
-          (anEntry > LinkedList<ItemType>::getEntry(position)) )
-   {
-      position++;
-   }  // end while
-   
-   // if ( (position > length) || (anEntry != this->getEntry(position)) )
-   if ( (position > length) || 
-       (anEntry != LinkedList<ItemType>::getEntry(position)) )
-   {
-      position = -position;
-   }  // end if
-   
-   return position;
+    int position = 1;
+    int length = LinkedList<ItemType>::getLength();
+    // int length = this->getLength();
+
+    // while ( (position <= length) && (anEntry > this->getEntry(position)) )
+    while ((position <= length) &&
+           (anEntry > LinkedList<ItemType>::getEntry(position)))
+    {
+        position++;
+    }  // end while
+
+    // if ( (position > length) || (anEntry != this->getEntry(position)) )
+    if ((position > length) ||
+        (anEntry != LinkedList<ItemType>::getEntry(position)))
+    {
+        position = -position;
+    }  // end if
+
+    return position;
 }  // end getPosition
 
 //=====================
@@ -105,7 +105,7 @@ bool SortedListAsA<ItemType>::remove(int position)
 }
 
 template<class ItemType>
-ItemType SortedListAsA<ItemType>::getEntry(int position) const throw(PrecondViolatedExcep)
+ItemType SortedListAsA<ItemType>::getEntry(int position) const
 {
     return LinkedList<ItemType>::getEntry(position);
 }

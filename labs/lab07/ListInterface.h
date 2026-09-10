@@ -9,8 +9,9 @@
 #define LISTINTERFACE_H_
 
 template<class ItemType>
-class ListInterface {
- public:
+class ListInterface
+{
+public:
     /** Sees whether this list is empty.
         @return True if the list is empty; otherwise returns false. */
     virtual bool isEmpty() const = 0;
@@ -58,4 +59,3 @@ class ListInterface {
     virtual void replace(int position, const ItemType& newEntry) = 0;
 };  // end ListInterface
 #endif  // LISTINTERFACE_H_
-

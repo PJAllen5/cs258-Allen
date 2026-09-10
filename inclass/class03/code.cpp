@@ -5,7 +5,6 @@
 #include <iostream>
 
 
-
 /* writeBackward with base case of zero
  * revise with a base case of 1
  */
@@ -16,37 +15,36 @@ void writeBackward(std::string s)
     {
         // Write last character
         std::cout << s.substr(length - 1, 1);
-        writeBackward(s.substr(0, length - 1)); // Write rest
-    } // end if
-} // end writeBackward
-
+        writeBackward(s.substr(0, length - 1));  // Write rest
+    }  // end if
+}  // end writeBackward
 
 
 int sumOfInts(int start, int end)
 {
     return -1;
-} // end sumOfInts
+}  // end sumOfInts
 
 
 void writeInts(int n)
 {
 
-} // end writeInts
+}  // end writeInts
 
 
 int sumOfN(int n, int array[])
 {
     return -1;
-} // end sumOfN
+}  // end sumOfN
 
 
 int fibonacci(int n)
 {
     return -1;
-} // end fibonacci
+}  // end fibonacci
 
 
 int arraySearch(int array[], int length, int item)
 {
     return -1;
-} // end arraySearch
+}  // end arraySearch

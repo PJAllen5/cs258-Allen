@@ -2,6 +2,6 @@
 
 // put implementation of sumOfSquares and power here
 
-recursion::recursion() {  // constructor
+recursion::recursion()
+{  // constructor
 }
-

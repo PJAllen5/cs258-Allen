@@ -13,8 +13,9 @@
 #include "PrecondViolatedExcep.h"
 
 template<class ItemType>
-class LinkedList : public ListInterface<ItemType> {
- private:
+class LinkedList : public ListInterface<ItemType>
+{
+private:
     Node<ItemType>* headPtr;  // Pointer to first node in the chain;
                               // (contains the first entry in the list)
     int itemCount;            // Current count of list items
@@ -27,7 +28,7 @@ class LinkedList : public ListInterface<ItemType> {
     // @return  A pointer to the node at the given position.
     Node<ItemType>* getNodeAt(int position) const;
 
- public:
+public:
     LinkedList();
     LinkedList(const LinkedList<ItemType>& aList);
     virtual ~LinkedList();
@@ -40,14 +41,12 @@ class LinkedList : public ListInterface<ItemType> {
 
     /** @throw PrecondViolatedExcep if position < 1 or
                                         position > getLength(). */
-    ItemType getEntry(int position) const throw(PrecondViolatedExcep);
+    ItemType getEntry(int position) const;
 
     /** @throw PrecondViolatedExcep if position < 1 or
                                         position > getLength(). */
-    void replace(int position, const ItemType& newEntry)
-                                throw(PrecondViolatedExcep);
+    void replace(int position, const ItemType& newEntry);
 };  // end LinkedList
 
 #include "LinkedList.cpp"
 #endif  // LINKEDLIST_H_
-

@@ -4,6 +4,6 @@
 #include "catch.hpp"
 
 // Test our hello function
-TEST_CASE( "### In Class - 1 - Hello World ###", "[test1]" ) {
+TEST_CASE("### In Class - 1 - Hello World ###", "[test1]")
+{
 }
-

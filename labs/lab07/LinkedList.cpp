@@ -8,12 +8,14 @@
 #include <cassert>
 
 template<class ItemType>
-LinkedList<ItemType>::LinkedList() : headPtr(nullptr), itemCount(0) {
+LinkedList<ItemType>::LinkedList() : headPtr(nullptr), itemCount(0)
+{
 }  // end default constructor
 
 template<class ItemType>
 LinkedList<ItemType>::LinkedList(const LinkedList<ItemType>& aList)
-                                 : itemCount(aList.itemCount) {
+    : itemCount(aList.itemCount)
+{
     // Points to nodes in original chain
     Node<ItemType>* origChainPtr = aList.headPtr;
 
@@ -28,7 +30,8 @@ LinkedList<ItemType>::LinkedList(const LinkedList<ItemType>& aList)
         // Copy remaining nodes
         Node<ItemType>* newChainPtr = headPtr;   // Points last node new chain
         origChainPtr = origChainPtr->getNext();  // Advance pointer
-        while (origChainPtr != nullptr) {
+        while (origChainPtr != nullptr)
+        {
             // Get next item from original chain
             ItemType nextItem = origChainPtr->getItem();
 
@@ -45,38 +48,46 @@ LinkedList<ItemType>::LinkedList(const LinkedList<ItemType>& aList)
             origChainPtr = origChainPtr->getNext();
         }  // end while
 
-        newChainPtr->setNext(nullptr);              // Flag end of chain
+        newChainPtr->setNext(nullptr);  // Flag end of chain
     }  // end if
 }  // end copy constructor
 
 template<class ItemType>
-LinkedList<ItemType>::~LinkedList() {
+LinkedList<ItemType>::~LinkedList()
+{
     clear();
 }  // end destructor
 
 template<class ItemType>
-bool LinkedList<ItemType>::isEmpty() const {
+bool LinkedList<ItemType>::isEmpty() const
+{
     return itemCount == 0;
 }  // end isEmpty
 
 template<class ItemType>
-int LinkedList<ItemType>::getLength() const {
+int LinkedList<ItemType>::getLength() const
+{
     return itemCount;
 }  // end getLength
 
 template<class ItemType>
-bool LinkedList<ItemType>::insert(int newPosition, const ItemType& newEntry) {
+bool LinkedList<ItemType>::insert(int newPosition, const ItemType& newEntry)
+{
     bool ableToInsert = (newPosition >= 1) && (newPosition <= itemCount + 1);
-    if (ableToInsert) {
+    if (ableToInsert)
+    {
         // Create a new node containing the new entry
         Node<ItemType>* newNodePtr = new Node<ItemType>(newEntry);
 
         // Attach new node to chain
-        if (newPosition == 1) {
+        if (newPosition == 1)
+        {
             // Insert new node at beginning of chain
             newNodePtr->setNext(headPtr);
             headPtr = newNodePtr;
-        } else {
+        }
+        else
+        {
             // Find node that will be before new node
             Node<ItemType>* prevPtr = getNodeAt(newPosition - 1);
 
@@ -92,15 +103,20 @@ bool LinkedList<ItemType>::insert(int newPosition, const ItemType& newEntry) {
 }  // end insert
 
 template<class ItemType>
-bool LinkedList<ItemType>::remove(int position) {
+bool LinkedList<ItemType>::remove(int position)
+{
     bool ableToRemove = (position >= 1) && (position <= itemCount);
-    if (ableToRemove) {
+    if (ableToRemove)
+    {
         Node<ItemType>* curPtr = nullptr;
-        if (position == 1) {
+        if (position == 1)
+        {
             // Remove the first node in the chain
             curPtr = headPtr;  // Save pointer to node
             headPtr = headPtr->getNext();
-        } else {
+        }
+        else
+        {
             // Find node that is before the one to delete
             Node<ItemType>* prevPtr = getNodeAt(position - 1);
 
@@ -124,43 +140,52 @@ bool LinkedList<ItemType>::remove(int position) {
 }  // end remove
 
 template<class ItemType>
-void LinkedList<ItemType>::clear() {
+void LinkedList<ItemType>::clear()
+{
     while (!isEmpty())
         remove(1);
 }  // end clear
 
 template<class ItemType>
-ItemType LinkedList<ItemType>::getEntry(int position) const throw(PrecondViolatedExcep) {
+ItemType LinkedList<ItemType>::getEntry(int position) const
+{
     // Enforce precondition
     bool ableToGet = (position >= 1) && (position <= itemCount);
-    if (ableToGet) {
+    if (ableToGet)
+    {
         Node<ItemType>* nodePtr = getNodeAt(position);
         return nodePtr->getItem();
-    } else {
+    }
+    else
+    {
         std::string message = "getEntry() called with an empty list or ";
-        message  = message + "invalid position.";
+        message = message + "invalid position.";
         throw(PrecondViolatedExcep(message));
     }  // end if
 }  // end getEntry
 
 template<class ItemType>
-void LinkedList<ItemType>::replace(int position, const ItemType& newEntry) throw(PrecondViolatedExcep)
+void LinkedList<ItemType>::replace(int position, const ItemType& newEntry)
 {
     // Enforce precondition
     bool ableToSet = (position >= 1) && (position <= itemCount);
-    if (ableToSet) {
+    if (ableToSet)
+    {
         Node<ItemType>* nodePtr = getNodeAt(position);
         nodePtr->setItem(newEntry);
-    } else {
+    }
+    else
+    {
         std::string message = "replace() called with an invalid position.";
         throw(PrecondViolatedExcep(message));
     }  // end if
 }  // end replace
 
 template<class ItemType>
-Node<ItemType>* LinkedList<ItemType>::getNodeAt(int position) const {
+Node<ItemType>* LinkedList<ItemType>::getNodeAt(int position) const
+{
     // Debugging check of precondition
-    assert( (position >= 1) && (position <= itemCount) );
+    assert((position >= 1) && (position <= itemCount));
 
     // Count from the beginning of the chain
     Node<ItemType>* curPtr = headPtr;

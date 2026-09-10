@@ -4,8 +4,9 @@
 
 #include <string>
 
-class recursion {
- public:
+class recursion
+{
+public:
     recursion();
     int sumOfSquares(int n);
     double power(double a, int n);

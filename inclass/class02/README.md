@@ -1,4 +1,4 @@
-# C++ Virtual Classes and Templates Assignment
+# CS258 In-class 2: Virtual Classes and Templates
 
 ## Assignment Overview
 

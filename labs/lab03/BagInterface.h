@@ -9,8 +9,9 @@
 #include <vector>
 
 template<class ItemType>
-class BagInterface {
- public:
+class BagInterface
+{
+public:
     /** Gets the current number of entries in this bag.
         @return The integer number of entries currently in the bag. */
     virtual int getCurrentSize() const = 0;
@@ -55,6 +56,6 @@ class BagInterface {
 
     /** Destroys object and frees memory allocated by object.
         (See C++ Interlude 2) */
-    virtual ~BagInterface() { }
+    virtual ~BagInterface() {}
 };  // end BagInterface
 #endif  // BAGINTERFACE_H_

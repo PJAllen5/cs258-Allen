@@ -8,69 +8,71 @@
 #include "LinkedList.h"
 #include <cassert>
 #include <cmath>
-  
+
 template<class ItemType>
 SortedListHasA<ItemType>::SortedListHasA()
-         : listPtr(std::make_unique<LinkedList<ItemType>>())
-{  }  // end default constructor
+    : listPtr(std::make_unique<LinkedList<ItemType>>())
+{
+}  // end default constructor
 
 template<class ItemType>
 SortedListHasA<ItemType>::SortedListHasA(const SortedListHasA<ItemType>& sList)
-         : listPtr(std::make_unique<LinkedList<ItemType>>())
+    : listPtr(std::make_unique<LinkedList<ItemType>>())
 {
-        //  add items to our list using public methods
-        for(int position = 1; position <= sList.getLength(); position++)
-        {
-                listPtr->insert(position, sList.getEntry(position));
-        }  // end for   
+    //  add items to our list using public methods
+    for (int position = 1; position <= sList.getLength(); position++)
+    {
+        listPtr->insert(position, sList.getEntry(position));
+    }  // end for
 }  // end copy constructor
 
 template<class ItemType>
 SortedListHasA<ItemType>::~SortedListHasA()
 {
-   clear();
+    clear();
 }  // end destructor
 
 template<class ItemType>
 bool SortedListHasA<ItemType>::insertSorted(const ItemType& newEntry)
 {
-   int newPosition = std::abs(getPosition(newEntry));
-   return listPtr->insert(newPosition, newEntry);;
+    int newPosition = std::abs(getPosition(newEntry));
+    return listPtr->insert(newPosition, newEntry);
+    ;
 }  // end insertSorted
 
 template<class ItemType>
 bool SortedListHasA<ItemType>::removeSorted(const ItemType& anEntry)
 {
-   bool ableToRemove = false;
-   if (!isEmpty())
-   {
-      int position = getPosition(anEntry);
-             
-      ableToRemove = position > 0;
-      if (ableToRemove)
-      {
-         ableToRemove = listPtr->remove(position);
-      }  // end if
-   }  // end if
+    bool ableToRemove = false;
+    if (!isEmpty())
+    {
+        int position = getPosition(anEntry);
 
-   return ableToRemove;
+        ableToRemove = position > 0;
+        if (ableToRemove)
+        {
+            ableToRemove = listPtr->remove(position);
+        }  // end if
+    }  // end if
+
+    return ableToRemove;
 }  // end removeSorted
 
 template<class ItemType>
 int SortedListHasA<ItemType>::getPosition(const ItemType& anEntry) const
 {
-   int position = 1;
-   int length = listPtr->getLength();
-   
-   while ( (position <= length) && (anEntry > listPtr->getEntry(position)) )
-   {
-      position++;
-   } // end while
-   
-   if ( (position > length) || (anEntry != listPtr->getEntry(position)) )
-      position = -position;
-   
-   return position;
+    int position = 1;
+    int length = listPtr->getLength();
+
+    while ((position <= length) && (anEntry > listPtr->getEntry(position)))
+    {
+        position++;
+    }  // end while
+
+    if ((position > length) || (anEntry != listPtr->getEntry(position)))
+        position = -position;
+
+    return position;
 }  // end getPosition
 
 //=====================
@@ -79,31 +81,31 @@ int SortedListHasA<ItemType>::getPosition(const ItemType& anEntry) const
 template<class ItemType>
 bool SortedListHasA<ItemType>::remove(int position)
 {
-   return listPtr->remove(position);
+    return listPtr->remove(position);
 }  // end remove
 
 template<class ItemType>
 void SortedListHasA<ItemType>::clear()
 {
-   listPtr->clear();
+    listPtr->clear();
 }  // end clear
 
 template<class ItemType>
-ItemType SortedListHasA<ItemType>::getEntry(int position) const throw(PrecondViolatedExcep)
+ItemType SortedListHasA<ItemType>::getEntry(int position) const
 {
-   return listPtr->getEntry(position);
+    return listPtr->getEntry(position);
 }  // end getEntry
 
 template<class ItemType>
 bool SortedListHasA<ItemType>::isEmpty() const
 {
-   return listPtr->isEmpty();
+    return listPtr->isEmpty();
 }  // end isEmpty
 
 template<class ItemType>
 int SortedListHasA<ItemType>::getLength() const
 {
-   return listPtr->getLength();
+    return listPtr->getLength();
 }  // end getLength
 
 //  End of implementation file.

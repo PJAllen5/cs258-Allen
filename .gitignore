@@ -35,6 +35,9 @@ testp
 utest
 test_arrayStack
 test_doubleNode
+test_fractions
+test_poly
+test_recursion
 test_linked_bag
 test_palindrome
 test_peek2

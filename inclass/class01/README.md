@@ -1,4 +1,4 @@
-# Compiling C++ Files in Linux
+# CS258 In-class 1: Compiling C++ Files in Linux
 
 ## Prerequisites
 

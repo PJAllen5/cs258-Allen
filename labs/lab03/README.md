@@ -5,9 +5,28 @@ This assignment is written in C++, and tested with make and [Catch2](https://git
 #### Part 1 - Chapter 4
 - LinkedBag
     - Revise the public method `add` in the class `LinkedBag` so that the new node is inserted at the end of the linked chain.  Call this new method `addEnd`.  Keep the original `add` method unchanged. 
-    - Suppose that the class `LinkedBag` did not have the data member itemCount. Revise the method `getCurrentSize` so that it counts the number of nodes in the linked chain Iteratively and Recursively.  Call these new methods `getCurrentSizeRecursive` and `getcurrentSizeIterative`.
+    - Suppose that the class `LinkedBag` did not have the data member itemCount. Revise the method `getCurrentSize` so that it counts the number of nodes in the linked chain Iteratively and Recursively.  Call these new methods `getCurrentSizeRecursive` and `getCurrentSizeIterative`.
     - Revise the public method `getFrequencyOf` in the class `LinkedBag` so that it is recursive.  Call this `getFrequencyOfRecursive`.  Leave `getFrequencyOf` method unmodified.
-- In a doubly linked chain, each node can point to the previous node as well as to the next node. figure 4-9 from the book shows a doubly linked chain and its head pointer. define a class to represent a node in a doubly linked chain, call it `doublelinknode`.  There is a header file partially created.  finish its implementation and write the .cpp file. hint: take a look at the `node.h` and `node.cpp` file.   Note, we are only creating the double linked node, not a double linked list or bag.
+- In a doubly linked chain, each node can point to the previous node as well as to the next node. Figure 4-9 from the book shows a doubly linked chain and its head pointer.  Define a class to represent a node in a doubly linked chain, call it `DoubleLinkNode`.  `DoubleLinkNode.h` and `DoubleLinkNode.cpp` are empty - you write both of them from scratch.  Use `Node.h` and `Node.cpp` as your model.  Note, we are only creating the double linked node, not a double linked list or bag.
+
+    The unit tests expect exactly these names:
+
+    | What | Name |
+    | ---- | ---- |
+    | Class | `DoubleLinkNode<ItemType>` (a template, like `Node`) |
+    | Constructor | `DoubleLinkNode(const ItemType& anItem)` |
+    | Item | `setItem(const ItemType&)` / `getItem()` |
+    | Next node | `setNext(DoubleLinkNode<ItemType>*)` / `getNext()` |
+    | Previous node | `setPrev(DoubleLinkNode<ItemType>*)` / `getPrev()` |
+
+    `setNext` and `setPrev` must accept `nullptr`, and the constructor must set **both**
+    `next` and `prev` to `nullptr` - see how `Node.cpp` does it.
+
+**`getCurrentSizeRecursive` and `getCurrentSizeIterative` must actually count the nodes
+in the chain.**  The point of the exercise is to work as though `itemCount` did not
+exist, so returning `itemCount` (or calling `getCurrentSize`) receives no credit for
+those methods, even though it passes the unit tests.  The same applies to
+`getFrequencyOfRecursive` - it must be recursive.
 
 To compile these classes, there is a unit test that creates a concrete instance of this class.  Note, that you should never compile a template class directly.   If it compiles, it will give odd behavior that is hard to debug.   
 
@@ -19,7 +38,7 @@ N/A
 
 
 ### Other test commands
-If you want to run just one of the tests, you can use `make test<x>` and replace `<x>` with the test number.
+To build and run just one set of tests, use `make run_linked_bag` or `make run_doubleNode`.
 
 ### Notes
 - Don't push the executable files to the repo.   The easy way to do this is to run `make clean` before pushing.

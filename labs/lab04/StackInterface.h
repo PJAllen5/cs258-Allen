@@ -8,8 +8,9 @@
 #define STACKINTERFACE_H_
 
 template<class ItemType>
-class StackInterface {
- public:
+class StackInterface
+{
+public:
     /** Sees whether this stack is empty.
         @return True if the stack is empty, or false if not. */
     virtual bool isEmpty() const = 0;
@@ -34,7 +35,6 @@ class StackInterface {
     virtual ItemType peek() const = 0;
 
     /** Destroys object and frees memory allocated by object. */
-    virtual ~StackInterface() {  }
+    virtual ~StackInterface() {}
 };  // end StackInterface
 #endif  // STACKINTERFACE_H_
-

@@ -6,7 +6,8 @@
 #include "catch.hpp"
 
 // Test the power function
-TEST_CASE("### part 1 - power ###", "[test1]" ) {
+TEST_CASE("### part 1 - power ###", "[test1]")
+{
     recursion myRec;
     REQUIRE(myRec.power(88, 0) == 1);  // Base Case
     REQUIRE(myRec.power(2, 3) == 8);
@@ -15,7 +16,8 @@ TEST_CASE("### part 1 - power ###", "[test1]" ) {
 }
 
 // test teh sumOfSquares function
-TEST_CASE("### part 1 - sumOfSquares ###", "[test2]" ) {
+TEST_CASE("### part 1 - sumOfSquares ###", "[test2]")
+{
     recursion myRec = recursion();
     REQUIRE(myRec.sumOfSquares(4) == 30);
     REQUIRE(myRec.sumOfSquares(3) == 14);

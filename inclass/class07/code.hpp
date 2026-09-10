@@ -11,4 +11,3 @@ std::stack<int> deleteOccurr(std::stack<int>& aStack, int item);
 
 // determine whether a string is in the language
 bool inLanguage(std::string theString);
-

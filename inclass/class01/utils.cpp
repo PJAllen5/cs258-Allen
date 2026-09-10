@@ -2,6 +2,7 @@
 #include <iostream>
 #include "utils.h"
 
-void printMessage(const char* message) {
+void printMessage(const char* message)
+{
     std::cout << "Message: " << message << std::endl;
 }

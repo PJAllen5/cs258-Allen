@@ -8,11 +8,13 @@
 #include "LinkedStack.h"  // Header file
 
 template<class ItemType>
-LinkedStack<ItemType>::LinkedStack() : topPtr(nullptr) {
+LinkedStack<ItemType>::LinkedStack() : topPtr(nullptr)
+{
 }  // end default constructor
 
 template<class ItemType>
-LinkedStack<ItemType>::LinkedStack(const LinkedStack<ItemType>& aStack) {
+LinkedStack<ItemType>::LinkedStack(const LinkedStack<ItemType>& aStack)
+{
     // Point to nodes in original chain
     Node<ItemType>* origChainPtr = aStack.topPtr;
 
@@ -49,24 +51,27 @@ LinkedStack<ItemType>::LinkedStack(const LinkedStack<ItemType>& aStack) {
             origChainPtr = origChainPtr->getNext();
         }  // end while
 
-        newChainPtr->setNext(nullptr);           // Flag end of chain
+        newChainPtr->setNext(nullptr);  // Flag end of chain
     }  // end if
 }  // end copy constructor
 
 template<class ItemType>
-LinkedStack<ItemType>::~LinkedStack() {
+LinkedStack<ItemType>::~LinkedStack()
+{
     // Pop until stack is empty
     while (!isEmpty())
         pop();
 }  // end destructor
 
 template<class ItemType>
-bool LinkedStack<ItemType>::isEmpty() const {
+bool LinkedStack<ItemType>::isEmpty() const
+{
     return topPtr == nullptr;
 }  // end isEmpty
 
 template<class ItemType>
-bool LinkedStack<ItemType>::push(const ItemType& newItem) {
+bool LinkedStack<ItemType>::push(const ItemType& newItem)
+{
     Node<ItemType>* newNodePtr = new Node<ItemType>(newItem, topPtr);
     topPtr = newNodePtr;
     newNodePtr = nullptr;
@@ -75,10 +80,12 @@ bool LinkedStack<ItemType>::push(const ItemType& newItem) {
 }  // end push
 
 template<class ItemType>
-bool LinkedStack<ItemType>::pop() {
+bool LinkedStack<ItemType>::pop()
+{
     bool result = false;
-    if (!isEmpty()) {
-    // Stack is not empty; delete top
+    if (!isEmpty())
+    {
+        // Stack is not empty; delete top
         Node<ItemType>* nodeToDeletePtr = topPtr;
         topPtr = topPtr->getNext();
 
@@ -94,7 +101,8 @@ bool LinkedStack<ItemType>::pop() {
 }  // end pop
 
 template<class ItemType>
-ItemType LinkedStack<ItemType>::peek() const {
+ItemType LinkedStack<ItemType>::peek() const
+{
     assert(!isEmpty());  // Enforce precondition
 
     // Stack is not empty; return top

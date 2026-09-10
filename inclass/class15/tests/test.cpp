@@ -1,9 +1,11 @@
 #define CATCH_CONFIG_MAIN  // This tells Catch to provide a main() -     only do this in one cpp file
 
-#include "../code.hpp"
+#include "../BinaryTreeInterface.h"
 #include "catch.hpp"
 
-// Test our hello function
-TEST_CASE( "### In Class - 1 - Hello World ###", "[test1]" ) {
+/* Starting point for this session's tests.  Write assertions against
+    BinaryTreeInterface as we work through the exercises in the README. */
+TEST_CASE("### placeholder ###", "[test1]")
+{
+    REQUIRE(true);
 }
-

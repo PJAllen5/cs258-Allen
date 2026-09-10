@@ -1,0 +1,58 @@
+# CS258 formatting rules
+#
+# clang-format is OPTIONAL for this course.  If you have it installed, it will
+# format your code to match the style used throughout these assignments, and
+# your editor can run it every time you save.  If you do not have it, nothing
+# here affects you - your code compiles exactly the same either way.
+#
+#   Install:  sudo apt install clang-format      (Ubuntu / WSL / Codespaces)
+#             pip install clang-format           (no admin rights needed)
+#
+#   Use:      clang-format -i yourfile.cpp       (-i means edit the file)
+#
+# VS Code picks this file up automatically once the C/C++ extension is
+# installed.  Turn on "Format on Save" and you never think about it again.
+
+BasedOnStyle: LLVM
+
+# Four spaces, never tabs.
+IndentWidth: 4
+TabWidth: 4
+UseTab: Never
+AccessModifierOffset: -4
+
+# Braces on their own line, which is the style the textbook code uses.
+BreakBeforeBraces: Allman
+
+# Keep the & and * attached to the TYPE, not the variable, so we write
+# const ItemType& item  and  Node<ItemType>* next
+PointerAlignment: Left
+ReferenceAlignment: Left
+
+# template<class ItemType> with no space, as the textbook writes it.
+SpaceAfterTemplateKeyword: false
+
+# Do not re-wrap long lines.  Line length is a judgement call, and reflowing
+# the textbook's carefully laid out comments does more harm than good.
+ColumnLimit: 0
+
+# Leave #include order alone - some of these headers depend on being included
+# in a particular order.
+SortIncludes: false
+
+# An empty function body may stay on one line; anything with real code in it
+# gets expanded.
+AllowShortFunctionsOnASingleLine: Empty
+AllowShortIfStatementsOnASingleLine: false
+AllowShortLoopsOnASingleLine: false
+
+# The textbook writes  }  // end foo  with two spaces before the comment.
+# Keep that, rather than churning every one of them to a single space.
+SpacesBeforeTrailingComments: 2
+
+# Do not re-wrap or re-indent existing comments.  The textbook's comment
+# blocks are laid out deliberately and reflowing them only creates noise.
+ReflowComments: false
+
+KeepEmptyLinesAtTheStartOfBlocks: true
+MaxEmptyLinesToKeep: 2

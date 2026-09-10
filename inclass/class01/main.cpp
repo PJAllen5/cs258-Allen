@@ -4,7 +4,8 @@
 #include "math.h"
 #include "container.h"
 
-int main() {
+int main()
+{
     std::cout << "C++ Compilation Example" << std::endl;
 
     Container<int> mycontainer;

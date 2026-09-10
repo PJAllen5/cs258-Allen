@@ -10,8 +10,9 @@
 #include <stdexcept>
 #include <string>
 
-class PrecondViolatedExcep : public std::logic_error {
- public:
+class PrecondViolatedExcep : public std::logic_error
+{
+public:
     PrecondViolatedExcep(const std::string& message = "");
 };  // end PrecondViolatedExcep
 #endif

@@ -1,4 +1,4 @@
-# CS258 Example: C++
+# CS258 In-class 5: Linked Chains and the Linked Bag
 This assignment is written in C++, and tested with make and [Catch2](https://github.com/catchorg/Catch2).
 
 ### The assignment
@@ -14,10 +14,14 @@ Note, not all of these items are required.   It depends on how much time we have
 N/A
 
 ### Run command
-`make test`
+`make` builds everything and runs the unit tests.
+
+`make test` runs just the tests.
+
+`make linkedbag_test` runs the separate LinkedBag test suite.
 
 ### Other test commands
-If you want to run just one of the tests, you can use `make test<x>` and replace `<x>` with the test number.
+Use `make test1` or `make test2` to run a single tagged test.
 
 If you just want to compile without running tests, use `make code`
 ### Notes

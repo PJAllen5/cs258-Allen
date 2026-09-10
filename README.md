@@ -9,7 +9,7 @@ for the rest of the term.
 ## Repository layout
 
 ```
-labs/         Homework assignments  (lab01 … lab10, plus lab02a)
+labs/         Homework assignments  (lab01 … lab07, plus lab02a)
 inclass/      In-class coding work  (class01 … class18)
 ```
 
@@ -25,58 +25,14 @@ directory with the Catch2 unit-testing header.
 
 ## One-time setup
 
-You only do this once, at the start of the term.
+Setting up your own repository is **Lab 1**. Full instructions, with screenshots, are in
+the Lab 1 codelab:
 
-### 1. Clone this repository
+> <https://teaching.pouliot.dev/cs258/>
 
-```bash
-git clone https://github.com/SOUComputerScience/cs258-assignments.git cs258
-cd cs258
-```
-
-### 2. Create your own private repository
-
-On GitHub, create a **new, empty, private** repository named:
-
-```
-cs258-<your-last-name>
-```
-
-Do **not** add a README, a `.gitignore`, or a license — it must be completely empty.
-
-> Your repository **must be private**. A public repository containing your coursework
-> is an academic-honesty problem for you and for whoever copies from it.
-
-### 3. Point your clone at your repository
-
-This makes your repo the default push target, and keeps mine available so you can
-pull down fixes and new assignments later.
-
-```bash
-git remote rename origin upstream
-git remote add origin https://github.com/<your-github-username>/cs258-<your-last-name>.git
-git push -u origin main
-```
-
-Check that it looks right:
-
-```bash
-git remote -v
-# origin    https://github.com/<you>/cs258-<lastname>.git  (fetch)
-# origin    https://github.com/<you>/cs258-<lastname>.git  (push)
-# upstream  https://github.com/SOUComputerScience/cs258-assignments.git  (fetch)
-# upstream  https://github.com/SOUComputerScience/cs258-assignments.git  (push)
-```
-
-### 4. Give me access
-
-On your repository: **Settings → Collaborators → Add people**, and add
-**`<INSTRUCTOR-GITHUB-USERNAME>`**.
-
-### 5. Submit your repository URL
-
-Post the URL of your repository to the **"Repository URL"** assignment on Moodle.
-I cannot grade work I cannot find, so this step is not optional.
+In short: you clone this repository once, create your own **private** repository on
+GitHub or GitLab, point this clone at it, and add me as a member. After that, all of
+your work for the term is pushed to your own repository.
 
 ---
 
@@ -109,8 +65,8 @@ repository and grade whatever commit is the most recent one **before the deadlin
 
 So: **push before the deadline.** Work that is only on your laptop does not exist.
 
-Verify your work actually arrived by opening your repository on GitHub in a browser
-and looking at the files. Every term, someone commits all term and never pushes.
+Verify your work actually arrived by opening your repository on GitHub or GitLab in a
+browser and looking at the files. Every term, someone commits all term and never pushes.
 
 ---
 

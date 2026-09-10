@@ -3,8 +3,8 @@
 
 /** @file BinaryNodeTree.cpp */
 
-#include "BinaryNodeTree.h" 
-#include "BinaryNode.h" 
+#include "BinaryNodeTree.h"
+#include "BinaryNode.h"
 #include <iostream>
 
 //////////////////////////////////////////////////////////////
@@ -14,43 +14,43 @@
 template<class ItemType>
 int BinaryNodeTree<ItemType>::getHeightHelper(std::shared_ptr<BinaryNode<ItemType>> subTreePtr) const
 {
-   if (subTreePtr == nullptr)
-      return 0;
-   else
-      return 1 + std::max(getHeightHelper(subTreePtr->getLeftChildPtr()),
-                     getHeightHelper(subTreePtr->getRightChildPtr()));
+    if (subTreePtr == nullptr)
+        return 0;
+    else
+        return 1 + std::max(getHeightHelper(subTreePtr->getLeftChildPtr()),
+                            getHeightHelper(subTreePtr->getRightChildPtr()));
 }  // end getHeightHelper
 
 template<class ItemType>
 int BinaryNodeTree<ItemType>::getNumberOfNodesHelper(std::shared_ptr<BinaryNode<ItemType>> subTreePtr) const
 {
-   return 0; // IMPLEMENT THIS 
+    return 0;  // IMPLEMENT THIS
 }  // end getNumberOfNodesHelper
 
 template<class ItemType>
 auto BinaryNodeTree<ItemType>::balancedAdd(std::shared_ptr<BinaryNode<ItemType>> subTreePtr,
                                            std::shared_ptr<BinaryNode<ItemType>> newNodePtr)
 {
-   if (subTreePtr == nullptr)
-      return newNodePtr;
-   else
-   {
-      auto leftPtr = subTreePtr->getLeftChildPtr();
-      auto rightPtr = subTreePtr->getRightChildPtr();
-      
-      if (getHeightHelper(leftPtr) > getHeightHelper(rightPtr))
-      {
-         rightPtr = balancedAdd(rightPtr , newNodePtr);
-         subTreePtr->setRightChildPtr(rightPtr );
-      }
-      else
-      {
-         leftPtr = balancedAdd(leftPtr, newNodePtr);
-         subTreePtr->setLeftChildPtr(leftPtr);
-      }  // end if
-      
-      return subTreePtr;
-   }  // end if
+    if (subTreePtr == nullptr)
+        return newNodePtr;
+    else
+    {
+        auto leftPtr = subTreePtr->getLeftChildPtr();
+        auto rightPtr = subTreePtr->getRightChildPtr();
+
+        if (getHeightHelper(leftPtr) > getHeightHelper(rightPtr))
+        {
+            rightPtr = balancedAdd(rightPtr, newNodePtr);
+            subTreePtr->setRightChildPtr(rightPtr);
+        }
+        else
+        {
+            leftPtr = balancedAdd(leftPtr, newNodePtr);
+            subTreePtr->setLeftChildPtr(leftPtr);
+        }  // end if
+
+        return subTreePtr;
+    }  // end if
 }  // end balancedAdd
 
 // Copies values up the tree to overwrite value in current node until
@@ -58,102 +58,102 @@ auto BinaryNodeTree<ItemType>::balancedAdd(std::shared_ptr<BinaryNode<ItemType>>
 template<class ItemType>
 std::shared_ptr<BinaryNode<ItemType>> BinaryNodeTree<ItemType>::moveValuesUpTree(std::shared_ptr<BinaryNode<ItemType>> subTreePtr)
 {
-   auto  leftPtr = subTreePtr->getLeftChildPtr();
-   auto  rightPtr = subTreePtr->getRightChildPtr();
-   int leftHeight = getHeightHelper(leftPtr);
-   int rightHeight = getHeightHelper(rightPtr);
-   if (leftHeight > rightHeight)
-   {
-      subTreePtr->setItem(leftPtr->getItem());
-      leftPtr = moveValuesUpTree(leftPtr);
-      subTreePtr->setLeftChildPtr(leftPtr);
-      return subTreePtr;
-   }
-   else 
-   {
-      if (rightPtr != nullptr)
-      {
-         subTreePtr->setItem(rightPtr->getItem());
-         rightPtr =moveValuesUpTree(rightPtr);         
-         subTreePtr->setRightChildPtr(rightPtr);
-         return subTreePtr;
-      }
-      else 
-      {
-         //this was a leaf!
-         // value not important
-         return nullptr;
-      }  // end if
-   }  // end if   
+    auto leftPtr = subTreePtr->getLeftChildPtr();
+    auto rightPtr = subTreePtr->getRightChildPtr();
+    int leftHeight = getHeightHelper(leftPtr);
+    int rightHeight = getHeightHelper(rightPtr);
+    if (leftHeight > rightHeight)
+    {
+        subTreePtr->setItem(leftPtr->getItem());
+        leftPtr = moveValuesUpTree(leftPtr);
+        subTreePtr->setLeftChildPtr(leftPtr);
+        return subTreePtr;
+    }
+    else
+    {
+        if (rightPtr != nullptr)
+        {
+            subTreePtr->setItem(rightPtr->getItem());
+            rightPtr = moveValuesUpTree(rightPtr);
+            subTreePtr->setRightChildPtr(rightPtr);
+            return subTreePtr;
+        }
+        else
+        {
+            //this was a leaf!
+            // value not important
+            return nullptr;
+        }  // end if
+    }  // end if
 }  // end moveValuesUpTree
 
 /** Depth-first search of tree for item.
  @param subTreePtr  tree to search.
  @param target  target item to find.
- @param success  communicate to client we found it. 
+ @param success  communicate to client we found it.
  @returns  A pointer to node containing the item. */
 template<class ItemType>
 std::shared_ptr<BinaryNode<ItemType>> BinaryNodeTree<ItemType>::removeValue(std::shared_ptr<BinaryNode<ItemType>> subTreePtr,
-                                                            const ItemType target,
-                                                            bool& success)
+                                                                            const ItemType target,
+                                                                            bool& success)
 {
-   if(subTreePtr == nullptr) // not found here
-      return subTreePtr;
+    if (subTreePtr == nullptr)  // not found here
+        return subTreePtr;
 
-   if (subTreePtr->getItem() == target) // found it
-   {
-      subTreePtr = moveValuesUpTree(subTreePtr);
-      success = true;
-      return subTreePtr;
-   }
-   else 
-   {
-      auto targetNodePtr = removeValue(subTreePtr->getLeftChildPtr(), target, success);
-      subTreePtr->setLeftChildPtr(targetNodePtr);
-      if (!success) // no need to search right subTree
-      {
-         targetNodePtr = removeValue(subTreePtr->getRightChildPtr(), target, success);
-         subTreePtr->setRightChildPtr(targetNodePtr);
-      }  // end if
-      
-      return subTreePtr;
-   }  // end if
+    if (subTreePtr->getItem() == target)  // found it
+    {
+        subTreePtr = moveValuesUpTree(subTreePtr);
+        success = true;
+        return subTreePtr;
+    }
+    else
+    {
+        auto targetNodePtr = removeValue(subTreePtr->getLeftChildPtr(), target, success);
+        subTreePtr->setLeftChildPtr(targetNodePtr);
+        if (!success)  // no need to search right subTree
+        {
+            targetNodePtr = removeValue(subTreePtr->getRightChildPtr(), target, success);
+            subTreePtr->setRightChildPtr(targetNodePtr);
+        }  // end if
+
+        return subTreePtr;
+    }  // end if
 }  // end removeValue
 
 template<class ItemType>
 auto BinaryNodeTree<ItemType>::findNode(std::shared_ptr<BinaryNode<ItemType>> treePtr,
-                                                                  const ItemType& target,
-                                                                  bool& success) const
+                                        const ItemType& target,
+                                        bool& success) const
 {
-   // IMPLEMENT ME
+    // IMPLEMENT ME
 }  // end findNode
 
 template<class ItemType>
 std::shared_ptr<BinaryNode<ItemType>> BinaryNodeTree<ItemType>::copyTree(const std::shared_ptr<BinaryNode<ItemType>> oldTreeRootPtr) const
 {
-   std::shared_ptr<BinaryNode<ItemType>> newTreePtr;
-   
-   // Copy tree nodes during a preorder traversal
-   if (oldTreeRootPtr != nullptr)
-   {
-      // Copy node
-      newTreePtr = std::make_shared<BinaryNode<ItemType>>(oldTreeRootPtr->getItem(), nullptr, nullptr);
-	   newTreePtr->setLeftChildPtr(copyTree(oldTreeRootPtr->getLeftChildPtr()));
-      newTreePtr->setRightChildPtr(copyTree(oldTreeRootPtr->getRightChildPtr()));
-   }  // end if
-   
-   return newTreePtr;
+    std::shared_ptr<BinaryNode<ItemType>> newTreePtr;
+
+    // Copy tree nodes during a preorder traversal
+    if (oldTreeRootPtr != nullptr)
+    {
+        // Copy node
+        newTreePtr = std::make_shared<BinaryNode<ItemType>>(oldTreeRootPtr->getItem(), nullptr, nullptr);
+        newTreePtr->setLeftChildPtr(copyTree(oldTreeRootPtr->getLeftChildPtr()));
+        newTreePtr->setRightChildPtr(copyTree(oldTreeRootPtr->getRightChildPtr()));
+    }  // end if
+
+    return newTreePtr;
 }  // end copyTree
 
 template<class ItemType>
 void BinaryNodeTree<ItemType>::destroyTree(std::shared_ptr<BinaryNode<ItemType>> subTreePtr)
 {
-   if (subTreePtr != nullptr)
-   {
-      destroyTree(subTreePtr->getLeftChildPtr());
-      destroyTree(subTreePtr->getRightChildPtr());
-      subTreePtr.reset(); // decrement reference count to node
-   }  // end if
+    if (subTreePtr != nullptr)
+    {
+        destroyTree(subTreePtr->getLeftChildPtr());
+        destroyTree(subTreePtr->getRightChildPtr());
+        subTreePtr.reset();  // decrement reference count to node
+    }  // end if
 }  // end destroyTree
 
 //////////////////////////////////////////////////////////////
@@ -163,25 +163,25 @@ void BinaryNodeTree<ItemType>::destroyTree(std::shared_ptr<BinaryNode<ItemType>>
 template<class ItemType>
 void BinaryNodeTree<ItemType>::preorder(void visit(ItemType&), std::shared_ptr<BinaryNode<ItemType>> treePtr) const
 {
-   // Implement me
+    // Implement me
 }  // end preorder
 
 template<class ItemType>
 void BinaryNodeTree<ItemType>::inorder(void visit(ItemType&), std::shared_ptr<BinaryNode<ItemType>> treePtr) const
 {
-   if (treePtr != nullptr)
-   {
-      inorder(visit, treePtr->getLeftChildPtr());
-      ItemType theItem = treePtr->getItem();
-      visit(theItem);
-      inorder(visit, treePtr->getRightChildPtr());
-   }  // end if
+    if (treePtr != nullptr)
+    {
+        inorder(visit, treePtr->getLeftChildPtr());
+        ItemType theItem = treePtr->getItem();
+        visit(theItem);
+        inorder(visit, treePtr->getRightChildPtr());
+    }  // end if
 }  // end inorder
 
 template<class ItemType>
 void BinaryNodeTree<ItemType>::postorder(void visit(ItemType&), std::shared_ptr<BinaryNode<ItemType>> treePtr) const
 {
-   // Implement me
+    // Implement me
 }  // end postorder
 
 //////////////////////////////////////////////////////////////
@@ -194,32 +194,35 @@ void BinaryNodeTree<ItemType>::postorder(void visit(ItemType&), std::shared_ptr<
 
 template<class ItemType>
 BinaryNodeTree<ItemType>::BinaryNodeTree()
-{  }  // end default constructor
+{
+}  // end default constructor
 
 template<class ItemType>
 BinaryNodeTree<ItemType>::BinaryNodeTree(const ItemType& rootItem)
-   :rootPtr(std::make_shared<BinaryNode<ItemType>>(rootItem, nullptr, nullptr))
-{  }  // end constructor
+    : rootPtr(std::make_shared<BinaryNode<ItemType>>(rootItem, nullptr, nullptr))
+{
+}  // end constructor
 
 template<class ItemType>
 BinaryNodeTree<ItemType>::BinaryNodeTree(const ItemType& rootItem,
-                                          const std::shared_ptr<BinaryNodeTree<ItemType>> leftTreePtr,
-                                          const std::shared_ptr<BinaryNodeTree<ItemType>> rightTreePtr)
-      :rootPtr(std::make_shared<BinaryNode<ItemType>>(rootItem,
-                                                copyTree(leftTreePtr->rootPtr),
-                                                copyTree(rightTreePtr->rootPtr)))
-{   }  // end constructor
+                                         const std::shared_ptr<BinaryNodeTree<ItemType>> leftTreePtr,
+                                         const std::shared_ptr<BinaryNodeTree<ItemType>> rightTreePtr)
+    : rootPtr(std::make_shared<BinaryNode<ItemType>>(rootItem,
+                                                     copyTree(leftTreePtr->rootPtr),
+                                                     copyTree(rightTreePtr->rootPtr)))
+{
+}  // end constructor
 
 template<class ItemType>
 BinaryNodeTree<ItemType>::BinaryNodeTree(const BinaryNodeTree<ItemType>& treePtr)
 {
-   rootPtr = copyTree(treePtr.rootPtr);
+    rootPtr = copyTree(treePtr.rootPtr);
 }  // end copy constructor
 
 template<class ItemType>
 BinaryNodeTree<ItemType>::~BinaryNodeTree()
 {
-   destroyTree(rootPtr);
+    destroyTree(rootPtr);
 }  // end destructor
 
 //////////////////////////////////////////////////////////////
@@ -230,74 +233,77 @@ BinaryNodeTree<ItemType>::~BinaryNodeTree()
 template<class ItemType>
 bool BinaryNodeTree<ItemType>::isEmpty() const
 {
-   return false; // IMPLEMENT ME
+    return false;  // IMPLEMENT ME
 }  // end isEmpty
 
 template<class ItemType>
 int BinaryNodeTree<ItemType>::getHeight() const
 {
-   return getHeightHelper(rootPtr);
+    return getHeightHelper(rootPtr);
 }  // end getHeight
 
 template<class ItemType>
 int BinaryNodeTree<ItemType>::getNumberOfNodes() const
 {
-   return getNumberOfNodesHelper(rootPtr);
+    return getNumberOfNodesHelper(rootPtr);
 }  // end getNumberOfNodes
 
 template<class ItemType>
 void BinaryNodeTree<ItemType>::clear()
 {
-   destroyTree(rootPtr);
-   rootPtr.reset();
+    destroyTree(rootPtr);
+    rootPtr.reset();
 }  // end clear
 
 template<class ItemType>
-ItemType BinaryNodeTree<ItemType>::getRootData() const throw(PrecondViolatedExcep)
+ItemType BinaryNodeTree<ItemType>::getRootData() const
 {
-   // IMPLEMENT ME
+    // IMPLEMENT ME
+    // the placeholder return is only here so the skeleton has defined
+    // behaviour before you write this - replace it
+    return ItemType();
 }  // end getRootData
 
 template<class ItemType>
 void BinaryNodeTree<ItemType>::setRootData(const ItemType& newItem)
 {
-   // IMPLEMENT ME
+    // IMPLEMENT ME
 }  // end setRootData
 
 template<class ItemType>
 bool BinaryNodeTree<ItemType>::add(const ItemType& newData)
 {
-   auto newNodePtr = std::make_shared<BinaryNode<ItemType>>(newData);
-   rootPtr = balancedAdd(rootPtr, newNodePtr);
-   return true;
+    auto newNodePtr = std::make_shared<BinaryNode<ItemType>>(newData);
+    rootPtr = balancedAdd(rootPtr, newNodePtr);
+    return true;
 }  // end add
 
 template<class ItemType>
 bool BinaryNodeTree<ItemType>::remove(const ItemType& target)
 {
-   bool isSuccessful = false;
-   rootPtr = removeValue(rootPtr, target, isSuccessful);
-   return isSuccessful; 
+    bool isSuccessful = false;
+    rootPtr = removeValue(rootPtr, target, isSuccessful);
+    return isSuccessful;
 }  // end remove
 
 template<class ItemType>
-ItemType BinaryNodeTree<ItemType>::getEntry(const ItemType& anEntry) const throw(NotFoundException)
+ItemType BinaryNodeTree<ItemType>::getEntry(const ItemType& anEntry) const
 {
-   bool isSuccessful = false;
-   auto binaryNodePtr = findNode(rootPtr, anEntry, isSuccessful);
-   
-   if (isSuccessful)
-      return binaryNodePtr->getItem(); 
-   else 
-      throw NotFoundException("Entry not found in tree!");
+    bool isSuccessful = false;
+    auto binaryNodePtr = findNode(rootPtr, anEntry, isSuccessful);
+
+    if (isSuccessful)
+        return binaryNodePtr->getItem();
+    else
+        throw NotFoundException("Entry not found in tree!");
 }  // end getEntry
 
 template<class ItemType>
-bool BinaryNodeTree<ItemType>:: contains(const ItemType& anEntry) const
+bool BinaryNodeTree<ItemType>::contains(const ItemType& anEntry) const
 {
-   bool isSuccessful = false;
-   findNode(rootPtr, anEntry, isSuccessful);
-   return isSuccessful;   
+    bool isSuccessful = false;
+    findNode(rootPtr, anEntry, isSuccessful);
+    return isSuccessful;
 }  // end contains
 
 //////////////////////////////////////////////////////////////
@@ -307,33 +313,31 @@ bool BinaryNodeTree<ItemType>:: contains(const ItemType& anEntry) const
 template<class ItemType>
 void BinaryNodeTree<ItemType>::preorderTraverse(void visit(ItemType&)) const
 {
-   preorder(visit, rootPtr);
+    preorder(visit, rootPtr);
 }  // end preorderTraverse
 
 template<class ItemType>
 void BinaryNodeTree<ItemType>::inorderTraverse(void visit(ItemType&)) const
 {
-   inorder(visit, rootPtr);
+    inorder(visit, rootPtr);
 }  // end inorderTraverse
 
 template<class ItemType>
 void BinaryNodeTree<ItemType>::postorderTraverse(void visit(ItemType&)) const
 {
-   postorder(visit, rootPtr);
+    postorder(visit, rootPtr);
 }  // end postorderTraverse
 
 //////////////////////////////////////////////////////////////
-//      Overloaded Operator 
+//      Overloaded Operator
 //////////////////////////////////////////////////////////////
 
 template<class ItemType>
 BinaryNodeTree<ItemType>& BinaryNodeTree<ItemType>::operator=(
-                                                const BinaryNodeTree<ItemType>& rightHandSide)
+    const BinaryNodeTree<ItemType>& rightHandSide)
 {
-   if (!isEmpty())
-      clear();
-   this = copyTree(&rightHandSide);
-   return *this;
+    if (!isEmpty())
+        clear();
+    this = copyTree(&rightHandSide);
+    return *this;
 }  // end operator=
-
-

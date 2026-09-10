@@ -4,5 +4,3 @@
 
 template<class ItemType>
 void deleteNode(Node<ItemType>* headPtr);
-
-

@@ -2,4 +2,4 @@
 #include <string>
 
 
-int postFixCalc( std::string);
+int postFixCalc(std::string expression);

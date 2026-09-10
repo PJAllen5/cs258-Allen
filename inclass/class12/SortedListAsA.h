@@ -18,22 +18,22 @@ template<class ItemType>
 class SortedListAsA : public SortedListInterface<ItemType>, private LinkedList<ItemType>
 {
 public:
-   SortedListAsA();
-   SortedListAsA(const SortedListAsA<ItemType>& sList);
-   virtual ~SortedListAsA();
+    SortedListAsA();
+    SortedListAsA(const SortedListAsA<ItemType>& sList);
+    virtual ~SortedListAsA();
 
-   bool insertSorted(const ItemType& newEntry) override;
-   bool removeSorted(const ItemType& anEntry) override;
-   int getPosition(const ItemType& newEntry) const override;
-   
-   // The following methods are inherited and have the same 
-   // specifications as given in ListInterface:
-   bool isEmpty() const override;
-   int getLength() const override;
-   bool remove(int position) override;
-   void clear() override;
-   ItemType getEntry(int position) const throw(PrecondViolatedExcep) override;
-}; // end SortedListAsA
+    bool insertSorted(const ItemType& newEntry) override;
+    bool removeSorted(const ItemType& anEntry) override;
+    int getPosition(const ItemType& newEntry) const override;
+
+    // The following methods are inherited and have the same
+    // specifications as given in ListInterface:
+    bool isEmpty() const override;
+    int getLength() const override;
+    bool remove(int position) override;
+    void clear() override;
+    ItemType getEntry(int position) const override;
+};  // end SortedListAsA
 
 #include "SortedListAsA.cpp"
-#endif 
+#endif

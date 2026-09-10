@@ -4,7 +4,7 @@
 using namespace std;
 
 /* Priority queue library:  https://cplusplus.com/reference/queue/priority_queue/
- * methods:  
+ * methods:
     empty()
     size()
     top()  -- access top element
@@ -16,7 +16,8 @@ using namespace std;
 void showpq(priority_queue<Event> gq)
 {
     priority_queue<Event> g = gq;
-    while (!g.empty()) {
+    while (!g.empty())
+    {
         cout << '\t' << g.top();
         g.pop();
     }
@@ -26,11 +27,11 @@ void showpq(priority_queue<Event> gq)
 // Driver Code
 int main()
 {
-    // just some code to demonstrate the use of the 
+    // just some code to demonstrate the use of the
     // C++ priority_queue library
     priority_queue<Event> banksim;
-    banksim.push(Event(3,4));
-    banksim.push(Event(3,1));
+    banksim.push(Event(3, 4));
+    banksim.push(Event(3, 1));
 
     cout << "The priority queue banksim is : ";
     showpq(banksim);

@@ -1,15 +1,59 @@
-# CS258 Example: C++
+# CS258 Lab 7: C++
 This assignment is written in C++, and tested with make and [Catch2](https://github.com/catchorg/Catch2).  Note, we are using the single header from Catch V2.   
 
 ### The assignment
-- For both parts, create the Makefile to compile and run the unit tests.  Implement appropriate unit tests.   Unit tests must have docstrings explaining what they are testing.  Thus running just `make` should compile all code and run all unit tests.
+There is no Makefile in this folder - you write it from scratch, as you did in lab 6.
+Running just `make` must compile all code and run all of your unit tests, and there must
+be a `clean` command.  Implement appropriate unit tests; every test needs a docstring
+explaining what it is testing.  The Catch2 header is provided in `tests/catch.hpp`.
 
-#### Part 1 - Chapter 12
+Compile with `-Wall -Wextra` in every rule, as the provided Makefiles in the earlier
+labs do:
+
+```
+g++ -std=c++11 -Wall -Wextra -c yourfile.cpp
+```
+
+These two flags ask the compiler to report code that is legal but almost certainly
+wrong - a function that never returns a value, an unused variable, an `if` whose
+indentation lies about what it guards.  They do not change what your program does.  A
+warning is not a failed build, but treat one as a bug until you have proved otherwise.
+
+
+#### Chapter 12 - the circular list
 - Consider an ADT circular list, which is like the ADT list but treats its first entry as if it were immediately after its last entry. For example, if a circular list contains six items, retrieval or removal of the eighth item actually involves the list’s second item. Let insertion into a circular list, however, behave exactly like insertion into a list. 
 
 Define and implement the ADT circular list inheriting/implementing ListInterface.  This implementation should not have a head pointer, but only a tail pointer and must be linked based using the Node class (no structs).  Also the last node must have a pointer to the first, thus a true circular list.   
 
-Example code for LinkedList is included in the repo. 
+Call your class `CircularList`, in `CircularList.h` and `CircularList.cpp`.
+
+Example code for LinkedList is included in the repo.
+
+##### What wraps, and what does not
+
+- `getEntry`, `replace` and `remove` **wrap**.  On a six item list, position 8 refers to
+  position 2, position 13 refers to position 1, and so on.
+- `insert` does **not** wrap.  It behaves exactly as it does in an ordinary list, so a
+  position outside `1` to `getLength() + 1` fails and returns false.
+
+Note this means your class deliberately breaks the preconditions written in
+`ListInterface.h`.  Those docstrings say `1 <= position <= getLength()`; for the three
+wrapping operations that restriction no longer applies, and your own docstrings should
+say what your version does instead.
+
+##### The two cases the wrapping formula does not cover
+
+Work out the arithmetic before you write it - both of these will bite you otherwise.
+
+- **An empty list.** Wrapping a position means dividing by the length, and the length is
+  zero.  `getEntry` and `replace` on an empty list must throw `PrecondViolatedExcep`
+  (provided for you in the repo, and already used by the supplied `LinkedList`).
+  `remove` on an empty list returns false.
+- **Position zero or negative.** In C++, `-1 % 6` is `-1`, not `5`, so the obvious
+  formula walks off the front of the list.  Positions below `1` are invalid: throw
+  `PrecondViolatedExcep` from `getEntry` and `replace`, and return false from `remove`.
+
+Your unit tests must cover both of these.
 
 ### Setup command
 N/A
@@ -21,20 +65,15 @@ N/A
 - **If you do modify the Makefile, make sure the the all command will compile all code and run all of the unit tests**
 - If you want to test your code outside of the unit testing environment, you can create a new `.cpp` file that has a `main()` function.
 
-### Grading Rubric (note, this is a rough guide)
-I cannot stress enough the importance of readability and documentations.  Code that is hard to read because of poor readability and documentation will be graded harshly.
-- Program Correctness 60%
-    - 100%: No errors, program always works correctly and meets the specification(s). 
-    - 80%: Minor details of the program specification are violated, program functions incorrectly for some inputs.
-    - 60%: Significant details of the specification are violated, program often exhibits incorrect behavior.
-    - 0%: Program only functions correctly in very limited cases or not at all.   **Code does not compile.**  If the code does not compile, it is an zero for the program correctness portion of your grade.  Code must compile using `make` command.  Note, if parts of your code do not work, you might modify the `Makefile` to only compile the portions that do work.   If you do this, make sure the `all` command will compile all files and unit tests and run the unit tests.  
-- Readability 20%
-    - 100%: No errors, code is clean, understandable, and well organized. 
-    - 80%: Minor issues with consistent indentation, use of whitespace, variable naming, or general organization.
-    - 60%: At least one major issue with indentation, whitespace, variable names, or organization.
-    - 0%: Major problems with at three or four of the readability subcategories.
-- Documentation (Comments) 20% 
-    - 100%: Code is well-commented 
-    - 80%: One or two places that could benefit from comments are missing them or the code is overly commented.
-    - 60%: File header missing, complicated lines or sections of code uncommented or lacking meaningful comments.
-    - 0%: No file header or comments present.
+### Grading Rubric
+
+| Category | Points |
+| -------- | ------ |
+| Implementation Correctness | 50 |
+| Unit Tests | 30 |
+| Code Quality & Documentation | 20 |
+| **Total** | **100** |
+
+- **Implementation Correctness (50)** - the circular list behaves correctly, including wrapping, the empty list, and invalid positions.  Code must compile.  Code that does not compile receives 0 for this category.
+- **Unit Tests (30)** - you write the tests for this lab, so they are worth real credit.  Cover wrapping past the end, the empty list, position zero, and the fact that `insert` does not wrap.  Tests that only exercise the easy path do not earn full marks.
+- **Code Quality & Documentation (20)** - readable, consistently formatted code, meaningful names, file headers, and docstrings on every method and every test.

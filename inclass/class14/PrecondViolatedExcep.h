@@ -13,6 +13,6 @@
 class PrecondViolatedExcep : public std::logic_error
 {
 public:
-   PrecondViolatedExcep(const std::string& message = "");
-}; // end PrecondViolatedExcep 
+    PrecondViolatedExcep(const std::string& message = "");
+};  // end PrecondViolatedExcep
 #endif

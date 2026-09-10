@@ -14,32 +14,31 @@
 #include "PrecondViolatedExcep.h"
 
 template<class ItemType>
-class SortedListIsA : public LinkedList<ItemType>// , public SortedListInterface<ItemType>
+class SortedListIsA : public LinkedList<ItemType>  // , public SortedListInterface<ItemType>
 {
 public:
-   SortedListIsA();
-   SortedListIsA(const SortedListIsA<ItemType>& sList);
-   virtual ~SortedListIsA();
+    SortedListIsA();
+    SortedListIsA(const SortedListIsA<ItemType>& sList);
+    virtual ~SortedListIsA();
 
-   bool insertSorted(const ItemType& newEntry);
-   bool removeSorted(const ItemType& anEntry);
-   int getPosition(const ItemType& anEntry) const;
-   
-   // The inherited methods remove, clear, getEntry, isEmpty, and
-   // getLength have the same specifications as given in ListInterface.
-/*
-   bool remove(int position);
-   void clear();
-   ItemType getEntry(int position) const throw(PrecondViolatedExcep);
-   bool isEmpty() const;
-   int getLength() const;
+    bool insertSorted(const ItemType& newEntry);
+    bool removeSorted(const ItemType& anEntry);
+    int getPosition(const ItemType& anEntry) const;
+
+    // The inherited methods remove, clear, getEntry, isEmpty, and
+    // getLength have the same specifications as given in ListInterface.
+    /*
+    bool remove(int position);
+    void clear();
+    ItemType getEntry(int position) const;
+    bool isEmpty() const;
+    int getLength() const;
 */
-   // The following methods must be overridden to disable their
-   // effect on a sorted list:
-   bool insert(int newPosition, const ItemType& newEntry) override;
-	void replace(int position, const ItemType& newEntry)
-                              throw(PrecondViolatedExcep) override;
-}; // end SortedListIsA
+    // The following methods must be overridden to disable their
+    // effect on a sorted list:
+    bool insert(int newPosition, const ItemType& newEntry) override;
+    void replace(int position, const ItemType& newEntry) override;
+};  // end SortedListIsA
 
 #include "SortedListIsA.cpp"
-#endif 
+#endif

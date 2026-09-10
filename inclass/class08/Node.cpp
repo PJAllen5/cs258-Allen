@@ -1,7 +1,7 @@
 //  Created by Frank M. Carrano and Timothy M. Henry.
 //  Copyright (c) 2017 Pearson Education, Hoboken, New Jersey.
 
-/** @file Node.cpp 
+/** @file Node.cpp
     Listing 4-2 */
 #include "Node.h"
 //#include <cstddef>
@@ -9,39 +9,38 @@
 template<class ItemType>
 Node<ItemType>::Node() : next(nullptr)
 {
-} // end default constructor
+}  // end default constructor
 
 template<class ItemType>
 Node<ItemType>::Node(const ItemType& anItem) : item(anItem), next(nullptr)
 {
-} // end constructor
+}  // end constructor
 
 template<class ItemType>
-Node<ItemType>::Node(const ItemType& anItem, Node<ItemType>* nextNodePtr) :
-                item(anItem), next(nextNodePtr)
+Node<ItemType>::Node(const ItemType& anItem, Node<ItemType>* nextNodePtr) : item(anItem), next(nextNodePtr)
 {
-} // end constructor
+}  // end constructor
 
 template<class ItemType>
 void Node<ItemType>::setItem(const ItemType& anItem)
 {
-   item = anItem;
-} // end setItem
+    item = anItem;
+}  // end setItem
 
 template<class ItemType>
 void Node<ItemType>::setNext(Node<ItemType>* nextNodePtr)
 {
-   next = nextNodePtr;
-} // end setNext
+    next = nextNodePtr;
+}  // end setNext
 
 template<class ItemType>
 ItemType Node<ItemType>::getItem() const
 {
-   return item;
-} // end getItem
+    return item;
+}  // end getItem
 
 template<class ItemType>
 Node<ItemType>* Node<ItemType>::getNext() const
 {
-   return next;
-} // end getNext
+    return next;
+}  // end getNext

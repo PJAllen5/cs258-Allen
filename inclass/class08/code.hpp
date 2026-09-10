@@ -1,21 +1,22 @@
 // code.hpp
 #include <string>
-#include "LinkedList.h"
+#include "ListInterface.h"
 
 /*
- * Consider an ADT list of integers. Write a function that computes the sum of 
- * the integers in the list aList. The definition of your function should be 
+ * Consider an ADT list of integers. Write a function that computes the sum of
+ * the integers in the list aList. The definition of your function should be
  * independent of the list’s implementation.  Hint: use getLength() and getEntry()
-        */
-int sumOfList(LinkedList& aList);
+                */
+// Takes the INTERFACE, not a concrete list, so it works with any
+// implementation of ListInterface - that is the point of the exercise.
+int sumOfList(ListInterface<int>& aList);
 
-/* Write a function swap(aList, i, j) that interchanges the items currently in 
+/* Write a function swap(aList, i, j) that interchanges the items currently in
  * positions i and j of a list. Define the function in terms of the ADT list
-  operations, so that it is independent of any particular implementation of the 
-  list. Assume that the list, in fact, has items at positions i and j.  
-  Return a value that indicates whether the swap is successful. 
+    operations, so that it is independent of any particular implementation of the
+    list. Assume that the list, in fact, has items at positions i and j.
+    Return a value that indicates whether the swap is successful.
  * */
-
 
 
 /* Use the function swap that you wrote in Exercise 2 to write a function that
@@ -31,7 +32,6 @@ int sumOfList(LinkedList& aList);
 /* Write a function contains at the client level that tests whether a given
  * list contains a given entry.
  */
-
 
 
 /* The ADT list method remove removes from the list the entry at a given position.

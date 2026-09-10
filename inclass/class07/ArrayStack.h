@@ -15,18 +15,18 @@ const int MAX_STACK = 5;
 template<class ItemType>
 class ArrayStack : public StackInterface<ItemType>
 {
-private:	
-	ItemType items[MAX_STACK]; // Array of stack items
-	int      top;              // Index to top of stack
-	
+private:
+    ItemType items[MAX_STACK];  // Array of stack items
+    int top;                    // Index to top of stack
+
 public:
-	 ArrayStack();             // Default constructor
-	 bool isEmpty() const;
-	 bool push(const ItemType& newEntry);
-	 bool pop();
-         int getSize(); // return the size of the array
-	 ItemType peek() const;	
-}; // end ArrayStack
+    ArrayStack();  // Default constructor
+    bool isEmpty() const;
+    bool push(const ItemType& newEntry);
+    bool pop();
+    int getSize();  // return the size of the array
+    ItemType peek() const;
+};  // end ArrayStack
 
 #include "ArrayStack.cpp"
 #endif
