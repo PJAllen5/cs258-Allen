@@ -68,12 +68,12 @@ N/A
 
 ### Grading Rubric (note, this is a rough guide)
 I cannot stress enough the importance of readability and documentations.  Code that is hard to read because of poor readability and documentation will be graded harshly.
-- Program Correctness 60%
+- Program Correctness 70%
     - 100%: No errors, program always works correctly and meets the specification(s). 
     - 80%: Minor details of the program specification are violated, program functions incorrectly for some inputs.
     - 60%: Significant details of the specification are violated, program often exhibits incorrect behavior.
     - 0%: Program only functions correctly in very limited cases or not at all.   **Code does not compile.**  If the code does not compile, it is an zero for the program correctness portion of your grade.  Code must compile using `make` command.  Note, if parts of your code do not work, you might modify the `Makefile` to only compile the portions that do work.   If you do this, make sure the `all` command will compile all files and unit tests and run the unit tests.  
-- Readability 20%
+- Readability 10%
     - 100%: No errors, code is clean, understandable, and well organized. 
     - 80%: Minor issues with consistent indentation, use of whitespace, variable naming, or general organization.
     - 60%: At least one major issue with indentation, whitespace, variable names, or organization.
