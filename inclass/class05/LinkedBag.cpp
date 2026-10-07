@@ -173,6 +173,26 @@ int LinkedBag<ItemType>::getFrequencyOf(const ItemType& anEntry) const
 }  // end getFrequencyOf
 
 template<class ItemType>
+int LinkedBag<ItemType>::getFrequencyOfRecursiveHelper(const ItemType& anEntry, Node<ItemType>* node) const{
+
+    if (node == nullptr){
+        return 0;
+    }
+    else if (anEntry == node->getItem()){
+        return 1 + getFrequencyOfRecursiveHelper(anEntry, node->getNext());
+    }
+    else {
+        return getFrequencyOfRecursiveHelper(anEntry, node->getNext());
+    }
+
+};
+
+template<class ItemType>
+int LinkedBag<ItemType>::getFrequencyOfRecursive(const ItemType& anEntry) const{
+    return getFrequencyOfRecursiveHelper(anEntry, headPtr);
+};
+
+template<class ItemType>
 bool LinkedBag<ItemType>::contains(const ItemType& anEntry) const
 {
     return (getPointerTo(anEntry) != nullptr);

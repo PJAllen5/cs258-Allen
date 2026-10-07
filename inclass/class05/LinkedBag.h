@@ -20,7 +20,7 @@ private:
     // Returns either a pointer to the node containing a given entry
     // or the null pointer if the entry is not in the bag.
     Node<ItemType>* getPointerTo(const ItemType& target) const;
-
+    int getFrequencyOfRecursiveHelper(const ItemType& anEntry, Node<ItemType>* node) const;
 public:
     LinkedBag();
     LinkedBag(const LinkedBag<ItemType>& aBag);  // Copy constructor
@@ -32,6 +32,7 @@ public:
     void clear();
     bool contains(const ItemType& anEntry) const;
     int getFrequencyOf(const ItemType& anEntry) const;
+    int getFrequencyOfRecursive(const ItemType& anEntry) const;
     std::vector<ItemType> toVector() const;
 };  // end LinkedBag
 
