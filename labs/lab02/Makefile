@@ -58,7 +58,7 @@
 
 # The default goal: what you get when you type `make` with no arguments.
 # Update this so that it builds and runs ALL of your code and unit tests.
-all: run_recursion
+all: run_recursion run_fractions
 
 # If you want to test your code outside of the unit tests, create a new .cpp
 # file with a main() function and add a rule for it here.
@@ -72,6 +72,8 @@ recursion.o: recursion.cpp recursion.hpp
 
 # TODO: add a rule to compile your fractions class into fractions.o.
 #       It should look almost exactly like the rule above.
+fractions.o: fractions.cpp fractions.hpp
+	g++ -std=c++11 -Wall -Wextra -c fractions.cpp
 
 
 # ---- linking the test programs -----------------------------------------
@@ -80,6 +82,9 @@ recursion.o: recursion.cpp recursion.hpp
 # rebuilds the program.
 test_recursion: recursion.o recursion.hpp tests/catch.hpp tests/test.cpp
 	g++ -std=c++11 -Wall -Wextra -o test_recursion recursion.o tests/test.cpp
+	
+test_fractions: fractions.o fractions.hpp tests/catch.hpp tests/testFrac.cpp
+	g++ -std=c++11 -Wall -Wextra -o test_fractions fractions.o tests/testFrac.cpp
 
 # TODO: add a rule that builds test_fractions from fractions.o and
 #       tests/testFrac.cpp.
@@ -98,6 +103,8 @@ run_recursion: test_recursion
 	./test_recursion -s
 
 # TODO: add a run_fractions target, and add it to `all` above.
+run_fractions: test_fractions
+	./test_fractions -s
 
 
 # ---- housekeeping ------------------------------------------------------
