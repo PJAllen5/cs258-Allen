@@ -7,33 +7,101 @@
 
 
 // display the stack in reverse order
-void displayBackward(std::stack<int>& aStack) {}
+void displayBackward(std::stack<int>& aStack) {
+    std::stack<int> auxStack;
+    while (!aStack.empty()){
+        auxStack.push(aStack.top());
+        aStack.pop();
+    }
+
+    while (!auxStack.empty()){
+        std::cout << auxStack.top() << " ";
+        auxStack.pop();
+    }
+}
 
 // count the items in the stack
 int countStack(std::stack<int>& aStack)
 {
+    std::stack<int> auxStack;
+    int count = 0;
+
+    while (!aStack.empty()){
+        auxStack.push(aStack.top());
+        aStack.pop();
+        count++;
+    }
     // TODO: write this.  The placeholder return is only here so the skeleton
     // has defined behaviour before you do - replace it.
-    return 0;
+
+    //restore aStack to its original state
+    while (!auxStack.empty()){
+        aStack.push(auxStack.top());
+        auxStack.pop();
+    }
+
+    return count;
 }
 
 // delete every occurrence of a specified item from a Stack
 std::stack<int> deleteOccurr(std::stack<int>& aStack, int item)
 {
+    std::stack<int> auxStack;
+
+    while (!aStack.empty()){
+        if (aStack.top() != item){
+            auxStack.push(aStack.top());
+        }
+        aStack.pop();
+    }
+
+    while (!auxStack.empty()){
+        aStack.push(auxStack.top());
+        auxStack.pop();
+    }
     // TODO: write this.  The placeholder return is only here so the skeleton
     // has defined behaviour before you do - replace it.
     return aStack;
 }
 
 // specify remove n
-
+/** @brief remove topmost N entries from the stack
+*  @param n the number of entries to remove
+*  @param stack the stack to remove entries from
+*  @return true if the entries were removed, false
+*  if the stack had fewer than n entries.
+*  @return int of number of items we removed from the stack
+*  @pre has at least n entries.
+*  @pre n >= 0.
+*  @post the stack n fewer entries than before, or is empty.
+*/
+bool removeN(int n, std::stack<int>& stack){}
 
 // determine whether a string is in the language
 bool inLanguage(std::string theString)
 {
+    // create s'
+    // read halfway through the string and copying to the stack
+    std::stack<char> auxStack;
+
+    int length = theString.length();
+    int halfLength = length / 2;
+
+    for (int i - 0; i < halfLength; i++){
+        auxStack.push(theString[i]);
+    }
+
+    // auxstack has half the string
+    for (int i = halfLength; i <length; i++){
+        if (auxStack.empty() || auxStack.top() != theString[i]){
+            return false;
+        }
+        auxStack.pop();
+    }
+    return true;
+
     // TODO: write this.  The placeholder return is only here so the skeleton
     // has defined behaviour before you do - replace it.
-    return false;
 }
 
 
