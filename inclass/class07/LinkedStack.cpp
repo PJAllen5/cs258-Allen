@@ -64,6 +64,17 @@ LinkedStack<ItemType>::~LinkedStack()
 }  // end destructor
 
 template<class ItemType>
+void LinkedStack<ItemType>::display() const {
+    // traverse chain of nodes and print each item
+    Node<ItemType>* alias = topPtr;
+
+    while (alias != nullptr){
+        std::cout << alias->getItem() << std::endl;
+        alias = alias->getNext();
+    }
+}
+
+template<class ItemType>
 bool LinkedStack<ItemType>::isEmpty() const
 {
     return topPtr == nullptr;

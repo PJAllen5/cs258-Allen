@@ -25,6 +25,7 @@ public:
     virtual ~LinkedStack();                            // Destructor
 
     // Stack operations:
+    void display() const;
     bool isEmpty() const;
     bool push(const ItemType& newItem);
     bool pop();

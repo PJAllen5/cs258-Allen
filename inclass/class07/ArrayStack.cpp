@@ -33,6 +33,12 @@ bool ArrayStack<ItemType>::push(const ItemType& newEntry)
     return result;
 }  // end push
 
+template<class ItemType>
+void ArrayStack<ItemType>::display() const{
+    for (int i = top; i >= 0; i--){
+        std::cout << items[i] << std::endl;
+    }
+}
 
 template<class ItemType>
 bool ArrayStack<ItemType>::pop()

@@ -23,6 +23,7 @@ public:
     ArrayStack();  // Default constructor
     bool isEmpty() const;
     bool push(const ItemType& newEntry);
+    void ArrayStack<ItemType>::display() const;
     bool pop();
     int getSize();  // return the size of the array
     ItemType peek() const;
