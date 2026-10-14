@@ -87,7 +87,7 @@ bool inLanguage(std::string theString)
     int length = theString.length();
     int halfLength = length / 2;
 
-    for (int i - 0; i < halfLength; i++){
+    for (int i = 0; i < halfLength; i++){
         auxStack.push(theString[i]);
     }
 
