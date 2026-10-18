@@ -58,10 +58,21 @@ test_poly: poly.o poly.h tests/catch.hpp tests/test_poly.cpp
 run_poly: test_poly
 	./test_poly -s
 
+# ---- calendar extra credit ---------------------------------------------
+# Not part of "all": build and run it with "make run_calendar".
+calendar.o: calendar.cpp calendar.h
+	g++ -std=c++11 -Wall -Wextra -c calendar.cpp
+
+calendar_demo: calendar.o calendar.h calendar_demo.cpp
+	g++ -std=c++11 -Wall -Wextra -o calendar_demo calendar.o calendar_demo.cpp
+
+run_calendar: calendar_demo
+	./calendar_demo
+
 # ---- housekeeping ------------------------------------------------------
 # -f means do not complain if the files are not there.
 # If you do the calendar extra credit, add its program name here too.
 clean:
-	rm -f *.o test_poly
+	rm -f *.o test_poly calendar_demo
 
-.PHONY: all run_poly clean
+.PHONY: all run_poly run_calendar clean
